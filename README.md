@@ -1,2 +1,2 @@
-# basic_traning
+# basic_training
 a respository to store python basic text
