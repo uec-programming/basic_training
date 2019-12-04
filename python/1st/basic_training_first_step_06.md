@@ -1,3 +1,4 @@
+###### tags: `Python_1st_Step`
 # 6　電卓
 
 |要　点|説　明|
