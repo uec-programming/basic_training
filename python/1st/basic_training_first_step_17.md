@@ -17,20 +17,20 @@ mt = turtle.Turtle()
 # スクリーンを取得
 screen = turtle.Screen()
 # スクリーンのサイズを800×600ピクセルに設定
-screen.setup( 800, 600 )
-# ウインドウのタイトルを設定
-screen.title( ' わたしのタートル ' )
+screen.setup(800, 600)
+# ウインドウのタイトルを設定 ※Repl.itでやっている場合は不要
+screen.title('わたしのタートル')
 # ペンの太さを4に設定
-mt.pensize( 4 )
+mt.pensize(4)
 # タートルを4方向に180ピクセル動かして正方形を描く
-mt.forward( 180 )
-mt.left( 90 )
-mt.forward( 180 )
-mt.left( 90 )
-mt.forward( 180)
-mt.left( 90 )
-mt.forward( 180 )
-mt.left( 90 )
+mt.forward(180)
+mt.left(90)
+mt.forward(180)
+mt.left(90)
+mt.forward(180)
+mt.left(90)
+mt.forward(180)
+mt.left(90)
 # マウスをクリックしてプログラム終了
 screen.exitonclick()
 ```
