@@ -13,7 +13,7 @@
 ```python=0
 # 1辺の長さが100ピクセルの正方形をタートルに描かせよう。
 >>> import turtle
->>> t = turtle.Pen()		# 変数ｔが図を描けるよう「turtle.Pen()」という機能を代入
+>>> t = turtle.Turtle()		# 変数ｔが図を描けるよう「turtle.Pen()」という機能を代入
 # リターンキーを押すと絵を描く画面が出現
 >>> t.shape("turtle")		# 矢じりを亀に替えてみよう
 >>> t.forward(100)		# 100ピクセル前進しよう
