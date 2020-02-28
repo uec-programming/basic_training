@@ -12,7 +12,7 @@
 ### ファイル名は`1_19_fivecircles.py`
 ```python=1
 import turtle
-t = turtle.Pen()
+t = turtle.Turtle()
 
 t.speed(0)
 t.width(10)
