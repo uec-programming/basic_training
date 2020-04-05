@@ -7,8 +7,8 @@
 |手順|（1）>>> (入力不要)の後の青文字を打ち込む。<br>（2）リターンキーを押す。<br>（3）結果を見る。<br>（4）赤字のエラーメッセージが出たら、どこかに間違いがあるため、前と違うやり方で試す。|
 
 ```=
->>> print( " Hello World ! " )
-Hello World
+>>> print("Hello World!")
+Hello World!
 >>> print "Hello"
 SyntaxError: Missing parentheses in call to 'print'
 >>> print("Hello")
