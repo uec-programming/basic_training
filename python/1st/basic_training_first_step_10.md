@@ -17,19 +17,25 @@
 ## ファイル名　`1_10_height.py`
 ```python=
 # cm単位の身長をm単位に変換するプログラム
-height = input( “Please input your height. ” )
+height = input("Please input your height. ")
 height = int( height )
 height = height / 100
 print( height )
 ```
+## ファイルの実行
+以下のコマンドで実行してください
+```shell
+python3 1_10_height.py
+```
+
 
 ## コードの解説
 |No|行|対象|説明|
 |---|---|---|---|
 |1|1|# cm単位の身長をm単位に～|コメント。処理のはじめや終わりに書きます。|#がついた行は実行されません。自分と読み手のために使います。|
-|2|2|height = input( “Please input~: ” )|heightは、作者がつけた変数名。|高さ、の意。|
-|3|2|height = input( “Please input~:” )|＝は代入演算子。|右の値をheightに代入します。|
-|4|2|height = input( “Please input~: ” )|ユーザに入力してもらうinput()関数。|input() 関数で得られる値は常に文字列型。|
+|2|2|height = input("Please input~: ")|heightは、作者がつけた変数名。|高さ、の意。|
+|3|2|height = input("Please input~: ")|＝は代入演算子。|右の値をheightに代入します。|
+|4|2|height = input("Please input~: ")|ユーザに入力してもらうinput()関数。|input() 関数で得られる値は常に文字列型。|
 |5|2|height = input()関数|input()関数で得た値を変数に代入します「いつものやり方」。|
 |6|3|height = int( height )|input()関数で得た値は「文字列型」。|文字列型は割り算ができないのでint() 関数で整数型に変換します。|
 |7|3|height = int( height )|整数の値を変数heightに代入します。この瞬間、文字列型の身長の値は消えました。|
