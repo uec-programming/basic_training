@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="256" viewBox="0 0 512 128">
+<style>
+.tag{fill:#4abdac;}
+.elem{fill:#bdac4a;font-weight:bold}
+.content{fill:#444444;}
+.note{fill:#ff0088}
+</style>
+  <rect width="512" height="128" fill="#ffffff" />
+  <rect x="16" y="36" width="480" height="80" rx="8" ry="8" fill="#f1eeda" />
+  <text x="256" y="70" text-anchor="middle" alignment-baseline="middle" font-size="24"><tspan class="tag">&lt;h1&gt;</tspan><tspan class="content">電通太郎のホームページ</tspan><tspan class="tag">&lt;/h1&gt;</tspan></text>
+  <path d="M52 80 l64 0 M380 80 l76 0" stroke="#4abdac" stroke-width="2" />
+  <path d="M120 80 L376 80" stroke="#444444" stroke-width="2" />
+  <text x="88" y="98" text-anchor="middle" alignment-baseline="middle" font-size="20" class="tag">開始タグ</text>
+  <text x="416" y="98" text-anchor="middle" alignment-baseline="middle" font-size="20" class="tag">終了タグ</text>
+  <text x="256" y="98" text-anchor="middle" alignment-baseline="middle" font-size="20" class="content">内容</text>
+  <text x="256" y="20" text-anchor="middle" alignment-baseline="middle" font-size="24" class="elem">h1要素</text>
+</svg>

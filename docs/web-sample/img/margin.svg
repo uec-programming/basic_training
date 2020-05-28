@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="386" viewBox="0 0 512 192">
+<style>
+text{font-feature-settings: "palt" 1;font-family:serif}
+tspan{font-family:monaco}
+.title{fill:#bdac4a;font-weight:bold}
+.prop{fill:#4abdac;}
+.val{fill:#444444;}
+.symbol{fill:#444444;}
+</style>
+  <rect width="512" height="192" fill="#ffffff" />
+  <text x="256" y="28" text-anchor="middle" alignment-baseline="middle" font-size="24" class="title">margin</text>
+  <rect x="16" y="44" width="480" height="136" rx="8" ry="8" fill="#f1eeda" />
+  <path d="M80 114 l-64 0 l12 12 l-12 -12 l12 -12 M432 114 l64 0 l-12 12 l12 -12 l-12 -12 M256 92 l0 -48 l-12 12 l12 -12 l12 12 M256 132 l0 48 l12 -12 l-12 12 l-12 -12" stroke="#bd4aac" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="80" y="90" width="352" height="48" fill="#444444" />
+</svg>

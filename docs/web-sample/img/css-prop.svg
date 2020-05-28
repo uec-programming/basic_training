@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="320" viewBox="0 0 512 160">
+<style>
+text{font-feature-settings: "palt" 1;font-family:serif}
+tspan{font-family:monaco}
+.title{fill:#bdac4a;font-weight:bold}
+.prop{fill:#4abdac;}
+.val{fill:#444444;}
+.symbol{fill:#444444;}
+</style>
+  <rect width="512" height="160" fill="#ffffff" />
+  <text x="256" y="28" text-anchor="middle" alignment-baseline="middle" font-size="24" class="title">宣言</text>
+  <rect x="16" y="44" width="480" height="96" rx="8" ry="8" fill="#f1eeda" />
+  <text x="256" y="88" text-anchor="middle" alignment-baseline="middle" font-size="32"><tspan class="prop">color</tspan><tspan class="symbol">: </tspan><tspan class="val">red</tspan><tspan class="symbol">;</tspan></text>
+  <path d="M152 100 l96 0" stroke="#4abdac" stroke-width="3" />
+  <path d="M284 100 l64 0" stroke="#444444" stroke-width="3" />
+  <text x="200" y="118" text-anchor="middle" alignment-baseline="middle" font-size="20" class="prop">プロパティ</text>
+  <text x="316" y="118" text-anchor="middle" alignment-baseline="middle" font-size="20" class="val">プロパティ値</text>
+</svg>

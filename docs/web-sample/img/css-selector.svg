@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="386" viewBox="0 0 512 192">
+<style>
+text{font-feature-settings: "palt" 1;font-family:serif}
+tspan{font-family:monaco}
+.title{fill:#bdac4a;font-weight:bold}
+.selector{fill:#bd4aac;}
+.prop{fill:#4abdac;}
+.val{fill:#444444;}
+.symbol{fill:#444444;}
+</style>
+  <rect width="512" height="192" fill="#ffffff" />
+  <text x="256" y="28" text-anchor="middle" alignment-baseline="middle" font-size="24" class="title">ルールセット</text>
+  <rect x="16" y="44" width="480" height="140" rx="8" ry="8" fill="#f1eeda" />
+  <text x="64" y="80" text-anchor="left" alignment-baseline="middle" font-size="24"><tspan class="selector">h1</tspan><tspan class="symbol"> {</tspan></text>
+  <text x="128" y="128" text-anchor="left" alignment-baseline="middle" font-size="24"><tspan class="prop">color</tspan><tspan class="symbol">: </tspan><tspan class="val">pink</tspan><tspan class="symbol">;</tspan></text>
+  <text x="64" y="172" text-anchor="left" alignment-baseline="middle" font-size="24"><tspan class="symbol">}</tspan></text>
+  <path d="M60 88 l36 0" stroke="#bd4aac" stroke-width="2" />
+  <path d="M128 140 l164 0" stroke="#444444" stroke-width="2" />
+  <text x="80" y="104" text-anchor="middle" alignment-baseline="middle" font-size="20" class="selector">セレクタ</text>
+  <text x="210" y="156" text-anchor="middle" alignment-baseline="middle" font-size="20" class="val">宣言</text>
+</svg>

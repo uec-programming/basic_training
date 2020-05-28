@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1152" height="192" viewBox="0 0 768 128">
+<style>
+*{font-family:serif}
+tspan{font-family:monaco}
+.tag{fill:#4abdac;}
+.attr{fill:#aa8800;}
+.elem{fill:#bdac4a;font-weight:bold}
+.content{fill:#444444;}
+.note{fill:#ff0088}
+</style>
+  <rect width="768" height="128" fill="#ffffff" />
+  <rect x="56" y="40" width="550" height="72" rx="8" ry="8" fill="#f1eeda" />
+  <text x="384" y="70" text-anchor="middle" alignment-baseline="middle" font-size="24"><tspan class="tag">&lt;a href=<tspan class="attr">"https://www.uec-programming.com"</tspan>&gt;</tspan><tspan class="content">こちら</tspan><tspan class="tag">&lt;/a&gt;</tspan></text>
+  <path d="M60 80 l56 0" stroke="#4abdac" stroke-width="2" />
+  <path d="M144 80 L592 80" stroke="#aa8800" stroke-width="2" />
+  <text x="88" y="98" text-anchor="middle" alignment-baseline="middle" font-size="20" class="tag">属性名</text>
+  <text x="368" y="98" text-anchor="middle" alignment-baseline="middle" font-size="20" class="attr">属性値</text>
+  <text x="330" y="24" text-anchor="middle" alignment-baseline="middle" font-size="24" class="elem">属性</text>
+</svg>
