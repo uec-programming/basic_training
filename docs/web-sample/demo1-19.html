@@ -20,8 +20,8 @@
       }
       img {
         border: 4px solid gray;
-        width: 480px;
-        height: 270px;
+        width: 320px;
+        height: 180px;
         border-radius: 20px;
       }
       main {
@@ -32,6 +32,9 @@
       }
       .violine {
         color: orange;
+      }
+      .pictures {
+        display: flex;
       }
       .cycling,
       .violine {
@@ -66,8 +69,10 @@
         <li>ニルスの不思議な旅</li>
       </ol>
       <h2>写真</h2>
-      <img src="tokyo-night.jpg" alt="東京の夜景" />
-      <p>東京の夜景です。きれいでしょう？</p>
+      <div class="pictures">
+        <img src="img/tokyo-night.jpg" alt="東京タワーから見た夜景" />
+        <img src="img/tokyo-sunrise.jpg" alt="高尾山から見た朝焼け" />
+      </div>
     </main>
   </body>
 </html>
