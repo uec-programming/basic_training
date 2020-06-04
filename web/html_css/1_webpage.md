@@ -21,7 +21,7 @@ breaks: false
 JavaScriptは{Java|ジャバ}とは全くの別の言語です。JavaScript はJSと省略します。
 :::
 
-![HTML5](https://i.imgur.com/Pfd4FAf.png)
+![HTML5](https://uec-programming.github.io/basic_training/web-sample/img/html5-family.png)
 <!-- フリー素材: http://www.shoshinsha-design.com/2014/12/html5%E3%80%80css3%E3%80%80js/.html 切り取り -->
 
 
@@ -40,6 +40,7 @@ JavaScriptは{Java|ジャバ}とは全くの別の言語です。JavaScript はJ
 
 :::info
 :bulb: **学習のコツ**
+
 教材をすべて暗記しようとすると大変なので「こんなものがあるんだな」と理解するようにしましょう。詳しく思い出したい時にページを見返したり、Googleで検索して思い出せれば十分です。
 :::
 
@@ -47,7 +48,7 @@ JavaScriptは{Java|ジャバ}とは全くの別の言語です。JavaScript はJ
 より詳しい技術的な仕組みは、CS解説で確認できます。
 :::
 
-![ブラウザ](https://i.imgur.com/aWOFLga.png)
+![ブラウザ](https://uec-programming.github.io/basic_training/web-sample/img/browsers.png)
 <!-- https://github.com/alrra/browser-logos より各ロゴ取得, 文字を追加 -->
 
 ## 始める前に
@@ -97,6 +98,4 @@ Finderを開き、"環境設定" > "詳細" > "すべてのファイル名拡張
 ## これからの目標
 
 HTML&CSS基礎編では、自己紹介ページを作成していきます。作成を通して、HTMLやCSSを用いて自分のウェブページを作成できるようになりましょう。
-
-
 
