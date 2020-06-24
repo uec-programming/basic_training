@@ -133,7 +133,7 @@ for i in range(len(student_list)):
 |6|`len(student_list)`で`student_list`の長さを求め、それを`range`関数の範囲として使います。ここでの長さは4なので、ループ変数`i`の変化範囲は`0`から`3`までです。|
 |7|`student_list[i][1]`とは`i`行目の`1`番目の要素を指します。ここでは、名前の列にあたります。|
 
-<iframe height="165px" width="100%" src="https://1-5.programminguec.repl.run?lite=true"></iframe>
+<iframe height="180px" width="100%" src="https://1-5.programminguec.repl.run?lite=true"></iframe>
 
 
 <div style='display: none'>
