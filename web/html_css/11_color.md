@@ -53,8 +53,8 @@ CSSという単語は、"1-1 ウェブページの仕組み"でも出てきま�
           <li>ニルスの不思議な旅</li>
         </ol>
         <h2>写真</h2>
-        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="東京タワーから見た夜景" />
-        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="高尾山から見た朝焼け" />
+        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
+        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
       </main>
     </body>
   </html>
@@ -84,9 +84,9 @@ https://developer.mozilla.org/ja/docs/Learn/CSS/First_steps/How_CSS_is_structure
 
 ### CSSの構文
 
-- **宣言**: 
-- **プロパティ**: 
-- **プロパティ値**: 
+- **宣言**:
+- **プロパティ**:
+- **プロパティ値**:
 
 <!-- CSSの基本 参考: https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/CSS_basics -->
 ![CSS宣言](https://uec-programming.github.io/basic_training/web-sample/img/css-prop.png)

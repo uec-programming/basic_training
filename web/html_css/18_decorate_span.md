@@ -57,8 +57,8 @@ breaks: false
       </ol>
       <h2>写真</h2>
 +     <div class="pictures">
-        <img src="img/tokyo-night.jpg" alt="東京タワーから見た夜景" />
-        <img src="img/tokyo-sunrise.jpg" alt="高尾山から見た朝焼け" />
+        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
+        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
 +     </div>
     </main>
   </body>

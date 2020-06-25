@@ -19,8 +19,8 @@ breaks: false
 ```diff=67
   ...省略...
         <h2>写真</h2>
-        <img src="tokyo-night.jpg" alt="東京の夜景" />
-        <p>東京の夜景です。きれいでしょう？</p>
+        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
+        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
 +       <h2>お問い合わせ</h2>
 +       <form action="http://soasa.starfree.jp/form.php">
 +         名前: <input type="text" name="name" placeholder="電通太郎" />

@@ -48,8 +48,8 @@ breaks: false
           <li>ニルスの不思議な旅</li>
         </ol>
         <h2>写真</h2>
-        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="東京タワーから見た夜景" />
-        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="高尾山から見た朝焼け" />
+        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
+        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
       </main>
 +   </body>
 + </html>

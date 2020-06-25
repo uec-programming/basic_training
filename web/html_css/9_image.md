@@ -45,8 +45,8 @@ breaks: false
       <li>ニルスの不思議な旅</li>
     </ol>
 +   <h2>写真</h2>
-+   <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="東京タワーから見た夜景" />
-+   <img src="https://i.imgur.com/HIxTKbe.jpg" alt="高尾山から見た朝焼け" />
++   <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
++   <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
   </main>
 
 ```
@@ -73,7 +73,7 @@ breaks: false
 `src`属性はこの要素に必ず書かなければなりません。埋め込みたい画像へのパスが属性値です。
 
 `alt`属性は画像をテキストで説明する時に用います。必ず書かなければならない属性ではありませんが、読み上げソフトなどを利用するユーザーが何の画像を表しているのかを知る事ができます。また、何らかの理由で画像が読み込まれない場合にページに表示されます。
-<!-- 
+<!--
 img要素: 閉じタグの無い要素(空要素って言うらしい初めて聞いた)
 src属性
 alt属性: 画像ロード失敗時 / スクリーンリーダの人が使う(webは目で見るだけじゃないよ！)
@@ -82,7 +82,7 @@ width, height属性はCSSで大きさを扱うため触れない
 閉じタグの無い要素 参考:
 https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML/Getting_started#Empty_elements
 
-img参考: 
+img参考:
 https://developer.mozilla.org/ja/docs/Web/HTML/Element/img
 -->
 :::info
@@ -97,7 +97,7 @@ https://developer.mozilla.org/ja/docs/Web/HTML/Element/img
 今回用いた画像ファイルは他のサイトの画像でした。画像ファイルを他のサイトから直接呼び出して表示させることを**直リンク**といいます。相手側のサーバーに負荷がかかります。直リンクは禁止されているサイトが多いため、できるだけしないようにしましょう。
 :::
 
-<!-- 
+<!--
 置換要素軽く紹介(置換要素って言葉はいらないかな)
 <img>の画像の埋め込みだけでなく、<audio>, <video>, <iframe>もあるよ！
 
