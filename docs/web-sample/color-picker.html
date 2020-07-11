@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+    <style>
+      .screen {
+        padding: 8px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .slider-container {
+        display: flex;
+        place-items: center;
+      }
+      .slider-group {
+        margin: 8px 0;
+      }
+      .slider-label {
+        width: 4em;
+        color: #888;
+        font-weight: bold;
+      }
+      .screen-label {
+        cursor: pointer;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+      .screen-label:hover {
+        transform: translateY(2px);
+      }
+      .screen-label.copy {
+        animation: copyAnim 0.3s linear 0s 1 normal forwards;
+      }
+      @keyframes copyAnim {
+        from {
+          text-shadow: 0 0 0 currentColor;
+        }
+        to {
+          text-shadow: 0 -16px 2px transparent;
+        }
+      }
+      .slider {
+        -webkit-appearance: none;
+        flex: 1;
+        height: 8px;
+        background: hsl(0, 0%, 90%);
+        outline: none;
+        border-radius: 8px;
+        margin: 0 8px;
+      }
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        display: block;
+        border: 4px solid hsl(0, 0%, 100%);
+        box-shadow: 0px 0px 8px #00000088;
+        background-color: transparent;
+        border-radius: 100%;
+      }
+      .slider::-moz-range-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        display: block;
+        border: 4px solid hsl(0, 0%, 100%);
+        box-shadow: 0px 0px 8px #00000088;
+        background-color: transparent;
+        border-radius: 100%;
+      }
+      #range-r {
+        background: linear-gradient(to right, #000, #f00);
+      }
+      #range-g {
+        background: linear-gradient(to right, #000, #0f0);
+      }
+      #range-b {
+        background: linear-gradient(to right, #000, #00f);
+      }
+      #range-h {
+        background: linear-gradient(to right, #000, #f00);
+      }
+      #range-s {
+        background: linear-gradient(to right, #000, #f00);
+      }
+      #range-l {
+        background: linear-gradient(to right, #000, #f00);
+      }
+    </style>
+    <script>
+      let currentColor = { r: 0, g: 0, b: 0, h: 0, s: 0, l: 0 };
+      const range = { r: null, g: null, b: null, h: null, s: null, l: null };
+      const label = { r: null, g: null, b: null, h: null, s: null, l: null };
+      let screen = null;
+      let screenParams = null;
+      const colorLabel = { hex: null, rgb: null, hsl: null };
+      document.addEventListener('DOMContentLoaded', () => {
+        range.r = document.getElementById('range-r');
+        range.g = document.getElementById('range-g');
+        range.b = document.getElementById('range-b');
+        range.h = document.getElementById('range-h');
+        range.s = document.getElementById('range-s');
+        range.l = document.getElementById('range-l');
+        label.r = document.getElementById('label-r');
+        label.g = document.getElementById('label-g');
+        label.b = document.getElementById('label-b');
+        label.h = document.getElementById('label-h');
+        label.s = document.getElementById('label-s');
+        label.l = document.getElementById('label-l');
+        screen = document.getElementById('screen');
+        screenParams = document.getElementById('screen-params');
+        colorLabel.hex = document.getElementById('hex');
+        colorLabel.rgb = document.getElementById('rgb');
+        colorLabel.hsl = document.getElementById('hsl');
+        setCopyListener(colorLabel.hex);
+        setCopyListener(colorLabel.rgb);
+        setCopyListener(colorLabel.hsl);
+        updateRGB({
+          r: Math.floor(256 * Math.random()),
+          g: Math.floor(256 * Math.random()),
+          b: Math.floor(256 * Math.random())
+        });
+      });
+      function setCopyListener(element) {
+        element.addEventListener('click', () => {
+          navigator.clipboard.writeText(element.textContent).then(() => {
+            element.classList.add('copy');
+            setTimeout(() => {
+              element.classList.remove('copy');
+            }, 300);
+          });
+        });
+      }
+      function updateColor() {
+        let { r, g, b, h, s, l } = currentColor;
+        range.r.value = r;
+        range.g.value = g;
+        range.b.value = b;
+        range.h.value = h;
+        range.s.value = s;
+        range.l.value = l;
+        s *= 100;
+        l *= 100;
+        label.r.textContent = r + '';
+        label.g.textContent = g + '';
+        label.b.textContent = b + '';
+        label.h.textContent = Math.round(h) + '°';
+        label.s.textContent = Math.round(s) + '%';
+        label.l.textContent = Math.round(l) + '%';
+        screenParams.style.color = getForegrowndColor(currentColor);
+        document.getElementById('screen').style.background = `rgb(${r}, ${g}, ${b})`;
+        range.r.style.background = `linear-gradient(to right, rgb(0, ${g}, ${b}), rgb(255, ${g}, ${b}))`;
+        range.g.style.background = `linear-gradient(to right, rgb(${r}, 0, ${b}), rgb(${r}, 255, ${b}))`;
+        range.b.style.background = `linear-gradient(to right, rgb(${r}, ${g}, 0), rgb(${r}, ${g}, 255))`;
+        range.h.style.background = `linear-gradient(to right, hsl(0, ${s}%, ${l}%),hsl(60, ${s}%, ${l}%),hsl(120, ${s}%, ${l}%),hsl(180, ${s}%, ${l}%), hsl(240, ${s}%, ${l}%), hsl(300, ${s}%, ${l}%), hsl(360, ${s}%, ${l}%))`;
+        range.s.style.background = `linear-gradient(to right, hsl(${h}, 0%, ${l}%), hsl(${h}, 100%, ${l}%))`;
+        range.l.style.background = `linear-gradient(to right, hsl(${h}, ${s}%, 0%), hsl(${h}, ${s}%, 100%))`;
+        screen.style.backgroundColor = getHexString(currentColor);
+        colorLabel.hex.textContent = getHexString(currentColor);
+        colorLabel.rgb.textContent = getRgbString(currentColor);
+        colorLabel.hsl.textContent = getHslString(currentColor);
+      }
+      function getHexString(color) {
+        const r = Math.floor(color.r).toString(16).padStart(2, '0');
+        const g = Math.floor(color.g).toString(16).padStart(2, '0');
+        const b = Math.floor(color.b).toString(16).padStart(2, '0');
+        return `#${r}${g}${b}`;
+      }
+      function getRgbString(color) {
+        const { r, g, b } = color;
+        return `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
+      }
+      function getHslString(color) {
+        const { h, s, l } = color;
+        return `hsl(${Math.floor(h)}, ${Math.floor(s * 100)}%, ${Math.floor(l * 100)}%)`;
+      }
+      function updateRGB({ r = currentColor.r, g = currentColor.g, b = currentColor.b }) {
+        currentColor = { ...rgb2hsl({ r, g, b }), r, g, b };
+        updateColor();
+      }
+      function updateHSL({ h = currentColor.h, s = currentColor.s, l = currentColor.l }) {
+        currentColor = { ...hsl2rgb({ h, s, l }), h, s, l };
+        updateColor();
+      }
+      function hsl2rgb({ h, s, l }) {
+        h /= 360;
+        let r, g, b;
+        if (s == 0) {
+          r = g = b = l; // achromatic
+        } else {
+          const hue2rgb = (p, q, t) => {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 2) return q;
+            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+            return p;
+          };
+          const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+          const p = 2 * l - q;
+          r = hue2rgb(p, q, h + 1 / 3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1 / 3);
+        }
+        return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+      }
+      function rgb2hsl(rgbColor) {
+        const r = rgbColor.r / 255;
+        const g = rgbColor.g / 255;
+        const b = rgbColor.b / 255;
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h;
+        let s;
+        let l = (max + min) / 2;
+        if (max === min) {
+          h = s = 0;
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r:
+              h = (g - b) / d + (g < b ? 6 : 0);
+              break;
+            case g:
+              h = (b - r) / d + 2;
+              break;
+            case b:
+              h = (r - g) / d + 4;
+              break;
+          }
+          h *= 60;
+        }
+        return { h, s, l };
+      }
+      function getRelativeLuminance({ r, g, b }) {
+        const calc = (c) => {
+          const sc = c / 255;
+          return sc <= 0.03928 ? sc / 12.92 : Math.pow((sc + 0.055) / 1.055, 2.4);
+        };
+        return 0.2126 * calc(r) + 0.7152 * calc(g) + 0.0722 * calc(b);
+      }
+      function getContrast(relativeLuminance1, relativeLuminance2) {
+        return (
+          (Math.max(relativeLuminance1, relativeLuminance2) + 0.05) /
+          (Math.min(relativeLuminance1, relativeLuminance2) + 0.05)
+        );
+      }
+      function getForegrowndColor(bgcolor) {
+        const bgLuminance = getRelativeLuminance(bgcolor);
+        const isBlack = getContrast(bgLuminance, 1.0) < getContrast(bgLuminance, 0.0);
+        return isBlack ? '#000' : '#fff';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="screen" class="screen">
+      <div id="screen-params">
+        <div class="screen-label" id="hex"></div>
+        <div class="screen-label" id="rgb"></div>
+        <div class="screen-label" id="hsl"></div>
+      </div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-container">
+        <div class="slider-label">Ｒ 赤</div>
+        <input
+          type="range"
+          min="0"
+          max="255"
+          value="255"
+          step="1"
+          class="slider"
+          id="range-r"
+          oninput="updateRGB({r: Number(this.value)})"
+          onchange="updateRGB({r: Number(this.value)})"
+        />
+        <div class="slider-label" id="label-r"></div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Ｇ 緑</div>
+        <input
+          type="range"
+          min="0"
+          max="255"
+          value="127"
+          step="1"
+          class="slider"
+          id="range-g"
+          oninput="updateRGB({g: Number(this.value)})"
+          onchange="updateRGB({g: Number(this.value)})"
+        />
+        <div class="slider-label" id="label-g"></div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Ｂ 青</div>
+        <input
+          type="range"
+          min="0"
+          max="255"
+          value="0"
+          step="1"
+          class="slider"
+          id="range-b"
+          oninput="updateRGB({b: Number(this.value)})"
+          onchange="updateRGB({b: Number(this.value)})"
+        />
+        <div class="slider-label" id="label-b"></div>
+      </div>
+    </div>
+    <div class="slider-group">
+      <div class="slider-container">
+        <div class="slider-label">Ｈ 色相</div>
+        <input
+          type="range"
+          min="0"
+          max="359"
+          step="1"
+          class="slider"
+          id="range-h"
+          oninput="updateHSL({h: Number(this.value)})"
+          onchange="updateHSL({h: Number(this.value)})"
+        />
+        <div class="slider-label" id="label-h"></div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Ｓ 彩度</div>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          class="slider"
+          id="range-s"
+          oninput="updateHSL({s: Number(this.value)})"
+          onchange="updateHSL({s: Number(this.value)})"
+        />
+        <div class="slider-label" id="label-s"></div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-label">Ｌ 明度</div>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          class="slider"
+          id="range-l"
+          oninput="updateHSL({l: Number(this.value)})"
+          onchange="updateHSL({l: Number(this.value)})"
+        />
+        <div class="slider-label" id="label-l"></div>
+      </div>
+    </div>
+  </body>
+</html>
