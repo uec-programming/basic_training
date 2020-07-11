@@ -4,7 +4,7 @@ lang: ja-jp
 breaks: false
 ---
 
-# 1-11 CSSとは
+# 1-11 文字に色を着けよう
 
 <!-- 目標 -->
 今回はウェブページの装飾の方法を学びましょう。
@@ -76,28 +76,41 @@ CSSという単語は、"1-1 ウェブページの仕組み"でも出てきま�
 
 ## 解説
 
-### {`style`|スタイル}属性
-<!--
-インラインスタイル
-https://developer.mozilla.org/ja/docs/Learn/CSS/First_steps/How_CSS_is_structured#Inline_styles
--->
-
 ### CSSの構文
 
-- **宣言**:
-- **プロパティ**:
-- **プロパティ値**:
+- **宣言**  
+  HTML要素に対してどのような装飾を行うかを指定します。 `color: pink;` のように、 {`:`|コロン} と {`;`|セミコロン}を用いて表します。
+- **プロパティ**  
+  装飾の種類を指定します。CSSには様々なプロパティが用意されていて、例えば文字色を変更するための`color`プロパティがあります。
+- **プロパティ値**  
+  装飾の内容を指定します。プロパティごとに様々な値が用意されていて、例えば`color`プロパティでは`red`, `pink`などが使用できます。
+  
 
 <!-- CSSの基本 参考: https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/CSS_basics -->
 ![CSS宣言](https://uec-programming.github.io/basic_training/web-sample/img/css-prop.png)
 
-### `color`プロパティ
+### {`color`|カラー}プロパティ
 
+colorプロパティは文字の色を指定します。値には、{`red`|レッド}, {`pink`|ピンク}, {`blue`|ブルー},　{`orange`|オレンジ}など、現在は147色の名前を指定できます。
 
+[147 Colors](http://www.colors.commutercreative.com/grid/) というウェブサイトで色名を見つけることができます。
 <!--
 値は、色名で指定できることのみ紹介、16進数表現など詳細は次回
 Color
 参考: https://developer.mozilla.org/ja/docs/Web/CSS/color_value
+-->
+
+### {`style`|スタイル}属性
+style属性はCSSの宣言を属性値として持ちます。要素に対して装飾を指定するために用います。
+
+:::info
+:bulb:**インラインスタイル**
+
+今回の練習では`<h1>`要素の中にstyle属性を指定しました。このようにHTMLコードの中に直接CSSの宣言をすることをインラインスタイルと言います。しかし、HTMLコードが長くなったり、HTMLとCSSが混同する恐れがあるので気をつけましょう。
+:::
+<!--
+インラインスタイル
+https://developer.mozilla.org/ja/docs/Learn/CSS/First_steps/How_CSS_is_structured#Inline_styles
 -->
 
 
