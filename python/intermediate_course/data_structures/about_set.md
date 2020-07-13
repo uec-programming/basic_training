@@ -27,6 +27,8 @@ new_set = {'a', 'b', 'c', 'a', 'b', 'c'}
 print('セットの中身:', new_set)
 print('セットの長さ:', len(new_set))  
 ```
+<iframe height="140px" width="100%" src="https://makeset1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 ```python=5
 # 方法2
 empty_set = set()
@@ -34,13 +36,15 @@ print('空のセット:', empty_set)
 new_set = set(['a', 'b', 'c', 'a', 'b', 'c'])
 print('new_set:', new_set)
 ```
+<iframe height="140px" width="100%" src="https://makeset2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 |行番号|解説|
 |---|---|
 |2|`{}`を使ってセットを作ります。|
 |3|セットに重複する値を持たせることができないので、`a`,`b`,`c`はそれぞれ一回ずつ出力されます。|
 |4|`len()`でセットを長さを求めます。|
 |6|`set()`を使ってセットを作ることもできます。|
-|8|`set(変数)`の変数に代入可能なのは、リストや文字列のようなイテラブル(繰り返し構文で操作可能なデータ型)です。|
+|8|`set(変数)`の変数に代入可能なのは、リスト、文字列、辞書、タプルなどのようなイテラブル(繰り返し構文で操作可能なデータ型)です。|
 
 :::info
 :bulb: 補足
@@ -61,6 +65,8 @@ nums = set([1, 2, 3, 4])
 print(4 not in nums)
 print(2 in nums)
 ```
+<iframe height="110px" width="100%" src="https://setoperation1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 |行番号|解説|
 |---|---|
 |1|`set()`の括弧に代入できる変数はイテラブルのみで、ここではリスト型のデータを代入しています。|
@@ -76,11 +82,13 @@ print(fruits)
 fruits.update(['orange', 'pear'])
 print(fruits)
 ```
+<iframe height="180px" width="100%" src="https://setoperation2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 |行番号|解説|
 |---|---|
 |1|空のセットを作ります。|
-|2,3|`add()`メソッドでセットに要素を追加します。`add`メソッドは文字列やタプルのようなハッシュ可能なデータを一つずつしか追加できません。|
-|6|`update()`メソッドでセットに要素を追加します。`update()`メソッドはリストのようなハッシュ不可能なデータ型を追加できます。|
+|2,3|`add()`メソッドでセットに要素を追加します。<br>`add()`メソッドは文字列やタプルのようなハッシュ可能なデータを一つずつしか追加できません。|
+|6|`update()`メソッドでセットに要素を追加します。<br>`update()`メソッドはリストのようなハッシュ不可能なデータ型を追加できます。|
 
 ```python=1
 # 要素を削除
@@ -90,6 +98,9 @@ print("要素1を削除後のセット:", nums)
 nums.discard(4)
 print("要素4を削除後のセット:", nums)
 ```
+<iframe height="160px" width="100%" src="https://setoperation3.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+
 |行番号|解説|
 |---|---|
 |3|`remove()`メソッドでセットから指定した要素を1つ削除します。該当する要素が存在しない場合は、`KeyError`を返します。|
@@ -106,6 +117,9 @@ print(s1)
 s2 = set1.union(set2)
 print(s2)
 ```
+<iframe height="120px" width="100%" src="https://calculation1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+
 |行番号|解説|
 |---|---|
 |1|和集合とは、演算する集合のいずれか少なくとも一つに含まれている要素の集合です。|
@@ -121,6 +135,9 @@ print(s1)
 s2 = set1.intersection(set2)
 print(s2)
 ```
+<iframe height="120px" width="100%" src="https://calculation2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+
 |行番号|解説|
 |---|---|
 |1|積集合とは、演算する集合の共通要素の集合です。|
@@ -135,13 +152,15 @@ print(s1)
 s2 = set1.difference(set2)
 print(s2)
 ```
+<iframe height="120px" width="100%" src="https://calculation3.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 |行番号|解説|
 |---|---|
 |1|差集合とは、ある集合の中から別の集合に属する要素を取り去って得られる集合です。|
 |4|`集合1-集合2`のように、`-`記号で計算を行います。集合1には含まれているが集合2には含まれていない要素の集合が結果として得られます。`-`の前後の変数は必ず集合型(セット)です。|
 |7|`difference()`メソッドを使っても差集合の計算ができます。この場合、括弧に集合型以外のデータ型を代入しても大丈夫です。|
 
-<div style='display: display'>
+<div style='display: none'>
 
 ## クイズ
 
@@ -159,7 +178,7 @@ set3 = set('abc')
 
 2. 以下の選択肢からエラーが出る操作を選んでください。
 
-```python = 1
+```python=1
 color = set(['red', 'blue', 'green', 'red']) 
 ```
 - [x] `color.add('yellow', 'pink')`
@@ -167,8 +186,8 @@ color = set(['red', 'blue', 'green', 'red'])
 - [x] `color.remove('black')`
 - [ ] `color.discard('white')`
 
-3. 変数`result`に含まれている要素を以下の選択肢から選んでください。
-```python = 1
+3. 集合型変数`result`に含まれている要素を以下の選択肢から選んでください。
+```python=1
 set1 = set(['c' ,'a', 'c'])
 set2 = set(['c' ,'d', 'a'])
 result = (set1 | set2).intersection(['x', 'a', 'c']) 
@@ -180,8 +199,8 @@ print(result)
 - [x] `c`
 
 
-4. 変数`result`に含まれている要素を以下の選択肢から選んでください。
-```python = 1
+4. 集合型変数`result`に含まれている要素を以下の選択肢から選んでください。
+```python=1
 set1 = set(['c' ,'a', 'c', 'd'])
 set2 = set(['c' ,'d', 'a'])
 result = (set1 & set2).intersection(['x', 'a', 'c','d']) 
@@ -192,11 +211,11 @@ print(result)
 - [x] `d`
 - [x] `c`
 
-5. 以下の変数のデータ型を考えて、イテラブルオブジェクトであるものを選んでください。
-- [x] `a = {'x', 'y', 'z'}`
-- [x] `b = ['x', 'y', 'z']`
-- [ ] `c = 2020 * 2`
-- [x] `d = (1, 2, 3)`
+5. 以下のデータ型から、イテラブルオブジェクトであるものを選んでください。
+- [x] 文字列
+- [x] リスト
+- [x] 辞書
+- [x] タプル
 
 </div>
 
