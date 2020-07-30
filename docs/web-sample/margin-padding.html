@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marginとpadding</title>
+    <style>
+      main {
+        display: flex;
+      }
+      .demo {
+        width: 300px;
+        background-color: #ddd;
+      }
+      .demo__content {
+        background-color: #aaeeff;
+        border: 2px solid #0088ff;
+      }
+      .controller {
+        padding: 8px;
+      }
+    </style>
+    <script>
+      let margin;
+      let padding;
+      function changeMargin(value) {
+        margin = value;
+        update();
+      }
+      function changePadding(value) {
+        padding = value;
+        update();
+      }
+      function update() {
+        const contents = document.getElementsByClassName('demo__content');
+        for (let i = 0; i < contents.length; i++) {
+          contents[i].style.padding = padding + 'px';
+          contents[i].style.margin = margin + 'px';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="demo">
+        <div class="demo__content">
+          1つ目のコンテンツです。右側の数値を変えて3つの青いボックスのmarginやpaddingを調整してみてください
+        </div>
+        <div class="demo__content">
+          2つ目のコンテンツです。marginは要素の外側の余白を調整するので、要素と要素の間隔を調整するために使えます。
+        </div>
+        <div class="demo__content">
+          3つ目のコンテンツです。paddingは要素の内側の余白を調整するので、文字などの内容の周りにゆとりを持たせることができます。
+        </div>
+      </div>
+      <div class="controller">
+        <div class="controller__column">
+          margin: <input type="number" value="0" onchange="changeMargin(this.value)" />px
+        </div>
+        <div class="controller__column">
+          padding: <input type="number" value="0" onchange="changePadding(this.value)" />px
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
