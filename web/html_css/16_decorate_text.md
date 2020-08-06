@@ -70,18 +70,34 @@ breaks: false
 ## 解説
 
 ### {`text-shadow`|テキスト シャドウ}プロパティ
+`text-shadow`プロパティはテキストに影をつけることができます。指定する値はテキスト横方向の影の距離、テキスト縦方向の影の距離、ぼかしの半径、影の色です。このうち、**必ず指定しなければならない**のは**縦横の影の距離**です。影の距離が0より大きい時、テキストの右側、下側に影を作り、影の距離が0より小さい時、テキストの左側、上側に影を作ります。
 
+今回の練習では最初の2つの値である`2px 2px`が横方向、縦方向の影の距離を指定しています。次の`4px`は影のぼかしの半径を指定しています。この値を大きくすると影は広く薄くなります。最後の`black`は影の色を指定しています。
 <!--
 参考: https://developer.mozilla.org/ja/docs/Web/CSS/text-shadow 
 -->
 
 ### {`font-size`|フォント サイズ}プロパティ
-
+`font-size`プロパティはテキストの文字の大きさを指定します`small medium large`などの`medium`を基準にした大きさや、今回の練習で用いた`64px`のような数値による大きさによって指定します。
 <!-- 
 参考: https://developer.mozilla.org/ja/docs/Web/CSS/font-size
 -->
 ### {`text-align`|テキスト アライン}プロパティ
-
+`text-align`プロパティはテキストの横方向の配置を指定します。`left`、`right`、`center`などのキーワード値を用いることで、テキストを左側に寄せる、あるいは右側に寄せる、中央で揃えることができます。今回の練習では`center`を用いたのでタイトルが中央で揃えられています。
 <!-- 
-参考: https://developer.mozilla.org/ja/docs/Web/CSS/font-size
+参考: https://developer.mozilla.org/ja/docs/Web/CSS/text-align
 -->
+
+:::info
+今回紹介したプロパティの値を変えながら、コードや表示結果を確認してみましょう。
+:::
+
+<style>
+iframe{
+  border: none;
+  width: 100%;
+  min-height: 20em;
+}
+</style>
+
+<iframe src="https://uec-programming.github.io/basic_training/web-sample/text-styles.html"></iframe>
