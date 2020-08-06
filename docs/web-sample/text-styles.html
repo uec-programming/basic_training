@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marginとpadding</title>
+    <style>
+      main {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        grid-template-rows: 1fr auto;
+      }
+      .demo-container {
+        border-left: 2px solid #ccc;
+        border-top: 2px solid #ccc;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 20px;
+      }
+      #demo {
+        width: 100%;
+      }
+      .controller {
+        padding: 8px;
+        background: #ccc;
+        grid-column: 2;
+        grid-row: 1/3;
+      }
+      .controller__name {
+        color: #444;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .controller__label {
+        font-family: monospace;
+        font-size: 16px;
+      }
+      .controller__input {
+        display: flex;
+        align-items: center;
+      }
+      .code {
+        grid-column: 1;
+        grid-row: 2;
+        background: #444;
+        padding: 4px;
+        color: #fff;
+        font-family: monospace;
+        font-size: 16px;
+      }
+    </style>
+    <script>
+      function update() {
+        const offsetX = document.getElementById('controller__offsetX').value;
+        const offsetY = document.getElementById('controller__offsetY').value;
+        const blur = document.getElementById('controller__blur').value;
+        const color = document.getElementById('controller__color').value;
+        const size = document.getElementById('controller__size').value;
+        const align = document.getElementById('controller__align').value;
+        document.getElementById('controller__offsetX-label').textContent = offsetX + 'px';
+        document.getElementById('controller__offsetY-label').textContent = offsetY + 'px';
+        document.getElementById('controller__blur-label').textContent = blur + 'px';
+        document.getElementById('controller__size-label').textContent = size + 'px';
+        const demoElement = document.getElementById('demo');
+        const textShadowCode = `${offsetX}px ${offsetY}px ${blur}px ${color}`;
+        const fontSizeCode = `${size}px`;
+        const textAlignCode = `${align}`;
+        document.getElementById(
+          'code'
+        ).innerText = `text-shadow: ${textShadowCode};\nfont-size: ${fontSizeCode};\ntext-align: ${textAlignCode};`;
+        demoElement.style.textShadow = textShadowCode;
+        demoElement.style.fontSize = fontSizeCode;
+        demoElement.style.textAlign = textAlignCode;
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        update();
+      });
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="demo-container">
+        <div id="demo">
+          電気通信大学プログラミング教室
+        </div>
+      </div>
+      <div class="controller">
+        <div class="controller__column">
+          <div class="controller__name">
+            影の横方向距離
+          </div>
+          <div class="controller__input">
+            <input
+              type="range"
+              id="controller__offsetX"
+              value="10"
+              min="-50"
+              max="50"
+              onchange="update()"
+              oninput="update()"
+            /><span id="controller__offsetX-label" class="controller__label"></span>
+          </div>
+        </div>
+        <div class="controller__column">
+          <div class="controller__name">
+            影の縦方向距離
+          </div>
+          <div class="controller__input">
+            <input
+              type="range"
+              id="controller__offsetY"
+              value="6"
+              min="-50"
+              max="50"
+              onchange="update()"
+              oninput="update()"
+            /><span id="controller__offsetY-label" class="controller__label"></span>
+          </div>
+        </div>
+        <div class="controller__column">
+          <div class="controller__name">
+            影のぼかし半径
+          </div>
+          <div class="controller__input">
+            <input
+              type="range"
+              id="controller__blur"
+              value="8"
+              min="0"
+              max="50"
+              onchange="update()"
+              oninput="update()"
+            /><span id="controller__blur-label" class="controller__label"></span>
+          </div>
+        </div>
+        <div class="controller__column">
+          <div class="controller__name">
+            影の色
+          </div>
+          <div class="controller__input">
+            <input type="color" id="controller__color" value="#8f70ff" onchange="update()" oninput="update()" />
+          </div>
+        </div>
+        <div class="controller__column">
+          <div class="controller__name">
+            文字サイズ
+          </div>
+          <div class="controller__input">
+            <input
+              type="range"
+              id="controller__size"
+              value="16"
+              min="0"
+              max="64"
+              onchange="update()"
+              oninput="update()"
+            /><span id="controller__size-label" class="controller__label"></span>
+          </div>
+        </div>
+        <div class="controller__column">
+          <div class="controller__name">
+            文字揃え
+          </div>
+          <div class="controller__input">
+            <select id="controller__align" onchange="update()">
+              <option value="left">左揃え(left)</option>
+              <option value="center" selected>中央揃え(center)</option>
+              <option value="right">右揃え(right)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="code" id="code"></div>
+    </main>
+  </body>
+</html>
