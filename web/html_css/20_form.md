@@ -16,11 +16,13 @@ breaks: false
  - `<form>`要素を追加する。
  - `<input>`要素や`<textarea>`要素などのフォーム要素を追加する。
 
-```diff=67
+```diff=69
   ...省略...
         <h2>写真</h2>
-        <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
-        <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
+        <div class="pictures">
+          <img src="https://i.imgur.com/HIxTKbe.jpg" alt="東京タワーから見た夜景" />
+          <img src="https://i.imgur.com/pAQ7QKc.jpg" alt="高尾山から見た朝焼け" />
+        </div>
 +       <h2>お問い合わせ</h2>
 +       <form action="http://soasa.starfree.jp/form.php">
 +         名前: <input type="text" name="name" placeholder="電通太郎" />
