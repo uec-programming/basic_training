@@ -29,6 +29,7 @@ Pyxelゲームプログラミング
 - [10　「箱」の抽象化と光る箱の分離](https://hackmd.io/@uecpg/pyxel_for_beginner_10)
 - [11　ゲームを何回も再開できるようにしてみよう](https://hackmd.io/@uecpg/pyxel_for_beginner_11)
 - [12　シーンマネージャーを作ってみよう](https://hackmd.io/@uecpg/pyxel_for_beginner_12)
+- [13　難易度設定を追加してみよう](https://hackmd.io/@uecpg/pyxel_for_beginner_13)
 
 
 
