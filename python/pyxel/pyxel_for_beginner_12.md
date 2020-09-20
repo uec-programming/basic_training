@@ -178,13 +178,13 @@ class PlayScene:
 
     def reset_game(self):
         # APPの中に箱(Box)のインスタンス(box)を作成する
-        self.box = Box(10, 10)
+        self.box = LightingBox(10, 10)
         # APPの中にplayerのインスタンスを作成する
         self.player = Player()
         # 敵のインスタンスをリストで作成する
         self.enemy_number = 3
         # リストの作り方は2通りある
-        self.enemys = [Enemy(random.choice([0, pyxel.width]), random.randint(0, pyxel.height), self.player) for _ in range(self.enemy_number)]
+        self.enemys = [Enemy(random.choice([0, pyxel.width]), random.randint(0, pyxel.height), target=self.player) for _ in range(self.enemy_number)]
 
     def update(self):
         # アプリのupdate関数はフレーム更新するごとに、各インスタンスのupdateも呼び出さないと、他のクラスは動かない
@@ -373,7 +373,7 @@ class PlayScene:
         # 敵のインスタンスをリストで作成する
         self.enemy_number = 3
         # リストの作り方は2通りある
-        self.enemys = [Enemy(random.choice([0, pyxel.width]), random.randint(0, pyxel.height), self.player) for _ in range(self.enemy_number)]
+        self.enemys = [Enemy(random.choice([0, pyxel.width]), random.randint(0, pyxel.height), target=self.player) for _ in range(self.enemy_number)]
 
     def update(self):
         # アプリのupdate関数はフレーム更新するごとに、各インスタンスのupdateも呼び出さないと、他のクラスは動かない
