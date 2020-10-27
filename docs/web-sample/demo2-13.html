@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数当てゲーム</title>
+    <script>
+      // 答え
+      const answer = 60;
+      // 入力された値
+      const input = 24;
+      // 答えと比べる
+      if (input < 1 || 100 < input) {
+        alert('1から100の間で入力してください。');
+      } else if (input == answer) {
+        alert('正解!');
+      } else if (input < answer) {
+        alert('不正解!答えは入力した数字より大きいです。');
+      } else {
+        alert('不正解!答えは入力した数字より小さいです。');
+      }
+    </script>
+  </head>
+  <body>
+    <h1>数当てゲーム</h1>
+  </body>
+</html>
