@@ -36,7 +36,7 @@ a = int( input( " a： " ) )
 b = int( input( " b： " ) )
 c = a // b
 print( "The quotient of a divided by b is" , c )
-# 割り算で余りを出す(ファイル名1_17_surplas.py)
+# 割り算で余りを出す(ファイル名1_14_surplus.py)
 print( "Calculate the remainder of a divided by b" )
 print( " Enter numbers for a and b." )
 a = int( input( " a： " ) )
