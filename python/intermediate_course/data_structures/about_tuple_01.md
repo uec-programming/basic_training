@@ -14,7 +14,7 @@ cursor: not-allowed
 }
 </style>
 
-# タプル
+# 3. タプル
 
 ## 導入
 今回はリストの兄弟と言われている **{tuple|タプル}** について紹介をします。リストに格納される値は変更可能に対して、タプルに格納される値は**変更不可能**です。「えっ、それだと不便じゃん」と思う人が多いかもしれないですが、変更不可能のおかげで**データ情報の安全性**を高めることができます。
@@ -40,7 +40,7 @@ weekend = 'saturday', 'sunday'
 print(weekend)
 ```
 
-<iframe height="150px" width="100%" src="https://maketuple.programminguec.repl.run?lite=true"></iframe>
+<iframe height="150px" width="100%" src="https://repl.it/@programminguec/maketuple?lite=1&outputonly=1"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -61,7 +61,7 @@ city_name = ('tokyo', 'osaka', 'kyoto', 'hokkaido')
 print(city_name)
 city_name[1] = 'saitama'
 ```
-<iframe height="180px" width="100%" src="https://unchangable1.programminguec.repl.run"></iframe>
+<iframe height="180px" width="100%" src="https://repl.it/@programminguec/unchangable1?lite=1&outputonly=1"></iframe>
 
 変更しようとしすると、変更不可能というエラーが発生します。
 `TypeError: 'tuple' object does not support item assignment`を訳すと、「タイプエラー:'タプル'オブジェクトに内容の代入ができない」という意味です。
@@ -72,7 +72,7 @@ print(city_name)
 city_name = ('saitama', 'kangawa', 'hiroshima', 'nagasaki')
 print(city_name)
 ```
-<iframe height="120px" width="100%" src="https://unchangable2.programminguec.repl.run"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/unchangable2?lite=1&outputonly=1"></iframe>
 
 同じ変数に代入し直すことはできます。
 これは新しいオブジェクトを作っているので、オブジェクトの中身の変更されてないです。
@@ -97,7 +97,7 @@ for i in num_tuple:
 |2,3|リストと同様にインデックスで要素にアクセスできます。|
 |5,6|スライス操作もリストと同様です。|
 |8,9|forによるタプルの操作,num_tupleの各要素の2倍の値を出力します。|
-<iframe height="260px" width="100%" src="https://operation1.programminguec.repl.run?lite=true"></iframe>
+<iframe height="260px" width="100%" src="https://repl.it/@programminguec/operation1?lite=1&outputonly=1"></iframe>
 リストは沢山メソッドがあるのに対して、タプルのメッソドは二つしかないです。
 
 ```python=1
@@ -114,7 +114,7 @@ print("要素5の出現回数:", num_tuple.count(5))  #num_tuple中の5の回数
 |3|`index(要素)`は要素のインデックスを返します。|
 |7|`count(要素)`は要素の出現回数を返します。|
 
-<iframe height="120px" width="100%" src="https://operation2.programminguec.repl.run?lite=true"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/operation2?lite=1&outputonly=1"></iframe>
 
 :::info
 :bulb: 補足事項
@@ -142,7 +142,7 @@ print('listをtupleに変換した:', tuple_1)
 |5|`len()`関数でタプルの長さを返します。|
 |8|`tuple()`で他の型をタプルに変換します。|
 
-<iframe height="150px" width="100%" src="https://operation3.programminguec.repl.run"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/operation3?lite=1&outputonly=1"></iframe>
 
 <div style='display: none'>
 
