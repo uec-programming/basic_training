@@ -14,7 +14,7 @@ cursor: not-allowed
 }
 </style>
 
-# 辞書-その②
+# 5. 辞書-その②
 ## 導入
 前のレッスンで辞書の基本的な操作について説明をしました。今回は要素を列挙する方法と、ループによる辞書の操作について紹介をします。
 ## 解説
@@ -28,10 +28,10 @@ print("\n(キー,値)ペアの一覧:", class_info.items())
 |行番号|解説|
 |---|---|
 |2|`keys()`メソッドで辞書の`キー`の一覧を返します|
-|3|`value()`メソッドで辞書の`値`の一覧を返します|
+|3|`values()`メソッドで辞書の`値`の一覧を返します|
 |4|`items()`メソッドで`キー`と`値`のペアを返します|
 
-<iframe height="200px" width="100%" src="https://enume-noloop.programminguec.repl.run?lite=true"></iframe>
+<iframe height="200px" width="100%" src="https://repl.it/@programminguec/enume-noloop?lite=1&outputonly=1"></iframe>
 
 :::info
 :bulb: 補足事項
@@ -56,7 +56,7 @@ for name_id, age_id in class_info.items():
 |---|---|
 |3,6|ループを使って、`キー`や`値`を一つずつ本来の文字列型と整数型として、出力しました。これは上のようなループを使わない方法と比べて、データをより操作しやすくなります。|
 
-<iframe height="330px" width="100%" src="https://enume-loop.programminguec.repl.run?lite=true"></iframe>
+<iframe height="330px" width="100%" src="https://repl.it/@programminguec/enume-loop?lite=1&outputonly=1"></iframe>
 
 :::info
 :bulb: 補足事項
@@ -86,10 +86,12 @@ for name, info in students.items():
 |6|変数`name`の中身は生徒の名前で、`students`という辞書の`キー`にあたる部分です。`info`は辞書の`値`にあたる部分です。**この`info`自体もまた一つの辞書となっています。**|
 |8,9|変数`stu_info`の中身は辞書`info`の`キー`にあたる`age`と`city`、そして`info[stu_info]`は`キー`に対応する`値`です。|
 
-<iframe height="320px" width="100%" src="https://nest-loop.programminguec.repl.run?lite=true"></iframe>
+<iframe height="320px" width="100%" src="https://repl.it/@programminguec/nest-loop?lite=1&outputonly=1"></iframe>
 
 <div style='display: none'>
+
 ## クイズ
+
 1. 以下のコードの実行結果を選んでください。
 ```python=1
 class_info = {'yuta': 25, 'yuka': 22, 'akane': 16}
@@ -102,15 +104,14 @@ print(list(class_info.items())[2])
 
 2. 以下のコードの実行結果を選んでください。
 ```python=1
-fruits = {"Apple": "リンゴ",　"Banana": "バナナ",　"Melon": "メロン",　"Orange": "オレンジ"
-}
-fruits.pop("Melon")
-print(list(fruits.values()))
+country = {"Japan": "Tokyo", "China": "Beijing", "France": "Paris"}
+country.pop("China")
+print(list(country.values()))
 ```
-- [ ] `['Apple', 'Banana', 'Orange']`
-- [ ] `['Apple', 'Banana', 'Orange', 'Melon']`
-- [x] `['リンゴ', 'バナナ', 'オレンジ']`
-- [ ] `['リンゴ', 'バナナ', 'オレンジ', 'Melon']`
+- [ ] `['Japan', 'China', 'France']`
+- [ ] `{'Japan', 'China', 'France'}`
+- [x] `['Tokyo', 'Paris']`
+- [ ] `{'Tokyo', 'Paris'}`
 
 3. 四人の生徒の名前と点数は以下のように辞書型変数`score`に格納されています。四人の合計点を計算するために、Aに入るコードを以下から選んでください。
 ```python=1
