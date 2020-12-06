@@ -143,8 +143,8 @@ class Student:
 student1 = Student("tom", 95)
 student1.print_score()
 
-print(student1.name)
-print(student1.score)
+print(student1.__name)
+print(student1.__score)
 ```
 <iframe height="160px" width="100%" src="https://repl.it/@programminguec/hiding2?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
