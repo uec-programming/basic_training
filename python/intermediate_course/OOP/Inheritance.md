@@ -128,7 +128,7 @@ student1.print_score()
 print(student1.name)
 print(student1.score)
 ```
-<iframe height="130px" width="100%" src="https://hiding-1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="130px" width="100%" src="https://repl.it/@programminguec/hiding-1?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 上のプログラム例と比較して、緑でハイライトされた行に注目してください。それぞれのプロパティ値の前のアンダーバー二つを入れたので、クラスの外部から`name`と`score`にアクセスできなくなります。そうすると、11,12行目のように、外部でその値を出力しようとしても、エラーが発生します。このように隠蔽処理を行うことで、クラスの安全性を高めることができました。
 
@@ -146,7 +146,7 @@ student1.print_score()
 print(student1.name)
 print(student1.score)
 ```
-<iframe height="160px" width="100%" src="https://hiding2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="160px" width="100%" src="https://repl.it/@programminguec/hiding2?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 <div style="display:none">
