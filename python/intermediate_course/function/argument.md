@@ -16,7 +16,7 @@ cursor: not-allowed
 
 # 9. 引数について
 ## 導入
-前回は関数の作成方法、使い方について説明しました。今回は引数として可能なデータ型や使い方について解説をします。
+前回は関数の作成方法、使い方について説明しました。今回は{引数|ひきすう}として可能なデータ型や使い方について解説をします。
 
 ## 解説
 ### 関数の引数
@@ -27,7 +27,7 @@ def power(x):
 print(power(5))
 ```
 
-<iframe height="100px" width="100%" src="https://int-args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/int-args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -40,7 +40,7 @@ def greet(x):
     return 'Hello ' + x
 print(greet('Jack'))
 ```
-<iframe height="100px" width="100%" src="https://char-args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/char-args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -56,7 +56,7 @@ def func(a, b=9):
     return v
 print(func(1))
 ```
-<iframe height="100px" width="100%" src="https://default-args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/default-args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -77,7 +77,7 @@ print('listAの和:', sumargs(listA))
 print('tupleAの和:', sumargs(tupleA))
 ```
 
-<iframe height="120px" width="100%" src="https://list-args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/list-args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -97,7 +97,7 @@ def sumargs(*numlist):
 print('リスト[1, 2, 3, 4]の和:', sumargs(1, 2, 3, 4))
 print('リストnumの和:', sumargs(*num))
 ```
-<iframe height="110px" width="100%" src="https://args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="110px" width="100%" src="https://repl.it/@programminguec/args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -120,7 +120,7 @@ def print_dict(**args):
     print(args)
 print_dict(name = 'John', age = 24, IP = '192.58.123.176')
 ```
-<iframe height="110px" width="100%" src="https://twoargs.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="110px" width="100%" src="https://repl.it/@programminguec/twoargs?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -138,7 +138,7 @@ def calculator(operation, n1, n2):
 print(calculator(add, 10, 20))
 ```
 
-<iframe height="100px" width="100%" src="https://funct-args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/funct-args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -162,7 +162,7 @@ triangle2 = lambda w,h : w*h/2
 print("lambda式を使わない結果：", triangle1(10, 8))
 print("lambda式を使う結果：", triangle2(10, 8))
 ```
-<iframe height="120px" width="100%" src="https://lambda-tri.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/lambda-tri?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ### 無名関数を引数として使ってみよう
 ```python=1
@@ -173,7 +173,7 @@ result2 = cal(lambda a, b: a - b)
 print("無名関数を使って計算した二数の和:", result1)
 print("無名関数を使って計算した二数の差:", result2)
 ```
-<iframe height="110px" width="100%" src="https://lambda-args.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="110px" width="100%" src="https://repl.it/@programminguec/lambda-args?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 `lambda`式を利用すると、関数の定義や戻り値の記述をする手間が省けて楽ですね。
 
@@ -216,7 +216,7 @@ print('\n')
 students.sort(key=check_math)
 print("数学の成績順で並べ替えた結果:", students)
 ```
-<iframe height="200px" width="100%" src="https://lambda-stu1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="200px" width="100%" src="https://repl.it/@programminguec/lambda-stu1?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
