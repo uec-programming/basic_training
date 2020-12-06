@@ -27,7 +27,7 @@ new_set = {'a', 'b', 'c', 'a', 'b', 'c'}
 print('セットの中身:', new_set)
 print('セットの長さ:', len(new_set))  
 ```
-<iframe height="140px" width="100%" src="https://makeset1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="140px" width="100%" src="https://repl.it/@programminguec/makeset1?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ```python=5
 # 方法2
@@ -36,7 +36,7 @@ print('空のセット:', empty_set)
 new_set = set(['a', 'b', 'c', 'a', 'b', 'c'])
 print('new_set:', new_set)
 ```
-<iframe height="140px" width="100%" src="https://makeset2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="140px" width="100%" src="https://repl.it/@programminguec/makeset2?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -65,7 +65,7 @@ nums = set([1, 2, 3, 4])
 print(4 not in nums)
 print(2 in nums)
 ```
-<iframe height="110px" width="100%" src="https://setoperation1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="110px" width="100%" src="https://repl.it/@programminguec/setoperation1?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -82,7 +82,7 @@ print(fruits)
 fruits.update(['orange', 'pear'])
 print(fruits)
 ```
-<iframe height="180px" width="100%" src="https://setoperation2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="180px" width="100%" src="https://repl.it/@programminguec/setoperation2?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -98,7 +98,7 @@ print("要素1を削除後のセット:", nums)
 nums.discard(4)
 print("要素4を削除後のセット:", nums)
 ```
-<iframe height="160px" width="100%" src="https://setoperation3.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="160px" width="100%" src="https://repl.it/@programminguec/setoperation3?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 |行番号|解説|
@@ -117,7 +117,7 @@ print(s1)
 s2 = set1.union(set2)
 print(s2)
 ```
-<iframe height="120px" width="100%" src="https://calculation1.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/calculation1?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 |行番号|解説|
@@ -135,7 +135,7 @@ print(s1)
 s2 = set1.intersection(set2)
 print(s2)
 ```
-<iframe height="120px" width="100%" src="https://calculation2.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/calculation2?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
 |行番号|解説|
@@ -152,7 +152,7 @@ print(s1)
 s2 = set1.difference(set2)
 print(s2)
 ```
-<iframe height="120px" width="100%" src="https://calculation3.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/calculation3?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
