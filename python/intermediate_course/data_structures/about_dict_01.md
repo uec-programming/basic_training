@@ -14,7 +14,7 @@ cursor: not-allowed
 }
 </style>
 
-# 辞書-その①
+# 4. 辞書-その①
 
 ## 導入
 今まではリストとタプルについて学びました。これらは全てインデックス(例:```a[1]```)による要素へのアクセスが可能です。しかし、これから説明する辞書型はインデックスで要素へのアクセスはできません。そして、この辞書型は皆さんが普段使ってる英和辞書と非常に近いイメージです。
@@ -40,7 +40,7 @@ Pythonではこのような対応関係を辞書型で表現します。
 class_info = {'yuta': 25, 'yusuke': 18, 'yuka': 22}
 print(class_info)
 ```
-<iframe height="100px" width="100%" src="https://createdict1.programminguec.repl.run?lite=true"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/createdict1?lite=1&outputonly=1"></iframe>
 
 ```python=5
 # 方法2
@@ -50,7 +50,7 @@ class_info['yusuke'] = 18
 class_info['yuka'] = 22
 print(class_info)
 ```
-<iframe height="100px" width="100%" src="https://createdict2.programminguec.repl.run?lite=true"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/createdict2?lite=1&outputonly=1"></iframe>
 
 |行番号|解説|
 |---|----|
@@ -68,14 +68,14 @@ print(class_info)
 class_info = dict(yuta = 25, yusuke = 18, yuka = 22)
 print(class_info)
 ```
-<iframe height="100px" width="100%" src="https://createdict3.programminguec.repl.run?lite=true"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/createdict3?lite=1&outputonly=1"></iframe>
 
 ```python=4
 # 方法4  
 class_info = dict([('yuta', 25), ('yusuke', 18), ('yuka', 22)])
 print(class_info)
 ```
-<iframe height="100px" width="100%" src="https://createdict4.programminguec.repl.run?lite=true"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/createdict4?lite=1&outputonly=1"></iframe>
 
 |行番号|解説|
 |---|----|
@@ -122,7 +122,7 @@ print('yutaを削除した後:', class_info)
 |17|指定する`キー`が存在しない場合は、辞書にその```キー```は追加されます。|
 |21|delの後ろに削除したい`キー`を指定し、辞書から該当する`キー`と`値`を削除できます。|
     
-<iframe height="240px" width="100%" src="https://access-elem.programminguec.repl.run?lite=true"></iframe>
+<iframe height="240px" width="100%" src="https://repl.it/@programminguec/access-elem?lite=1&outputonly=1"></iframe>
 
 ### 辞書中の辞書
 
@@ -141,7 +141,7 @@ print('naokoが住む都市:', students['naoko']['city'])
 |6|`students['yusuke']`は、yusukeの全ての個人情報にアクセスできます。出力例結果は一つの辞書です。|
 |7|`students['naoko']['city']`は、naokoの個人情報中の住む都市に関する情報にアクセスできます。|
 
-<iframe height="120px" width="100%" src="https://nestdict.programminguec.repl.run?lite=true"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/nestdict?lite=1&outputonly=1"></iframe>
 
 
 <div style='display: none'>
@@ -190,7 +190,7 @@ student = {1: {'name': 'yuta', 'age': '27'},
           }
 ```
 - [ ] `student[1][1]`
-- [ ] `student[2]['age']`
+- [x] `student[2]['age']`
 - [ ] `student[1]['age']`
-- [x] `student[2][age]`
+- [ ] `student[2][age]`
 </div>
