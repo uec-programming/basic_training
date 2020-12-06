@@ -45,7 +45,7 @@ data = a_file.read()
 print(data)
 a_file.close()
 ```
-<iframe height="130px" width="100%" src="https://read.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="130px" width="100%" src="https://repl.it/@programminguec/read?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -63,7 +63,7 @@ data = a_file.readlines()
 print(data)
 a_file.close()
 ```
-<iframe height="100px" width="100%" src="https://readlines.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="100px" width="100%" src="https://repl.it/@programminguec/readlines?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 一番目のコード例とほぼ同じですが、二行目で`readlines()`というメソッドを使いました。これは、ファイルの中身を一行ずつ読み込んで、ひとつのリストとして値を格納します。実行結果で確認してみてください。
 
@@ -94,7 +94,7 @@ a = a_file.read()
 print(a)
 a_file.close()
 ```
-<iframe height="180px" width="100%" src="https://write.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="180px" width="100%" src="https://repl.it/@programminguec/write?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 繰り返して実行すると`Hello python`は何度も追加されます。
 
