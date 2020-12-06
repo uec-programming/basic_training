@@ -48,7 +48,7 @@ num = [i * 2 for i in range(1, 11)]
 print(num)
 ```
 
-<iframe height="120px" width="100%" src="https://listcommprehension02.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/listcommprehension02?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -76,7 +76,7 @@ print(num)
 num1 = [i for i in range(1, 21) if i % 3 == 0]
 print(num1)
 ```
-<iframe height="120px" width="100%" src="https://listcomprehensionwithifonly.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/listcomprehensionwithifonly?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -111,7 +111,7 @@ num1 = [str(i) if i % 3 ==0 else 'a' for i in range(1, 11)]
 print(num1)
 ```
 
-<iframe height="120px" width="100%" src="https://listcomprehensionwithifelse.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/listcomprehensionwithifelse?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
@@ -142,7 +142,7 @@ print(over_twenty)
 student_age = {'yuki': 21, 'naoko': 24, 'haruto': 18, 'makoto': 25}
 print({k:v for k,v in student_age.items() if v >= 20})
 
-<iframe height="120px" width="100%" src="https://dictcomprehension.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/dictcomprehension?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ```
 |行番号|解説|
@@ -162,14 +162,14 @@ python3.6以降では、辞書型に対して`for`文の処理はキー値が追
 ### タプルと集合型の内包表記
 ```python=1
 # リストから奇数だけを取り出し、重複なしのsetにする
-no_dup = set(i for i in [1, 2, 3, 4, 5, 4, 3, 2, 1] if i%2==1)
+no_dup = set(i for i in [1, 2, 3, 4, 5, 4, 3, 2, 1] if i % 2==1)
 print('no_dup:', no_dup)
 # 辞書のkey値をタプルにする
 key_tuple = tuple(k for k in {'a':1, 'b':2})
 print('key_tuple:', key_tuple)
 ```
 
-<iframe height="120px" width="100%" src="https://othercomprehension.programminguec.repl.run?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="120px" width="100%" src="https://repl.it/@programminguec/othercomprehension?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
