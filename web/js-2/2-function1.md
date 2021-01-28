@@ -42,7 +42,7 @@ function 関数名(引数名1, 引数名2, 引数名3, ...) {
 関数名(引数1, 引数2, 引数3, ...);
 ```
 
-具体的に見てみましょう。前回作成した`satHello()`関数に、名前を渡してみます。
+具体的に見てみましょう。前回作成した`sayHello()`関数に、名前を渡してみます。
 
 ```javascript=
 // sayHello関数を定義
@@ -67,7 +67,7 @@ sayHello('花子');
 
 > [color=#d400f5]
 > 
-> ### :rocket: **練習**
+> ### :rocket: **練習1**
 > 
 > 下には、前回のコードが入力されています。上のコードになるように自分で書き換えて、実行してみましょう。  
 > 次に、別の名前を`sayHello`関数に渡してみましょう。
@@ -96,12 +96,12 @@ guide('東谷', 3);
 
 > [color=#d400f5]
 > 
-> ### :rocket: **練習**
+> ### :rocket: **練習2**
 > 
 > 上のコードを自分で入力し、実行してみましょう。  
 > 次に、関数呼び出しを追加してみましょう。
 > 
-> <iframe src="https://uec-programming.github.io/basic_training/web-sample/editor.html?code=// sayHello関数を定義\n\n\n\n\n// sayHello関数を呼び出し\n"></iframe>
+> <iframe src="https://uec-programming.github.io/basic_training/web-sample/editor.html?code=// guide関数を定義\n\n\n\n\n\n// guide関数を呼び出し\n\n"></iframe>
 
 :::info
 :point_up: **補足: 関数に値を渡さないとどうなる？**
