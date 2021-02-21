@@ -15,8 +15,8 @@ breaks: false
 - `<h2>`要素を追加する。
 - `<img>`要素を2つ追加する。
 - `<img>`要素の`src`属性に、それぞれ画像アドレスを指定する
-    - 1つめの画像: `https://i.imgur.com/pAQ7QKc.jpg`
-    - 2つめの画像: `https://i.imgur.com/HIxTKbe.jpg`
+    - 1つめの画像: `https://i.imgur.com/HIxTKbe.jpg`
+    - 2つめの画像: `https://i.imgur.com/pAQ7QKc.jpg`
 - `<p>`要素を追加する。
 
 :::info
