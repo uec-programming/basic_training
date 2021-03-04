@@ -31,7 +31,7 @@ cursor: not-allowed
 :::
 
 以下のコード例で扱う`test.txt`の中身です。
-```=
+```=1
 line 1
 line 2
 line 3
@@ -43,16 +43,18 @@ line 3
 a_file = open("test.txt", "r")
 data = a_file.read()
 print(data)
+print('raw data:', repr(data))
 a_file.close()
 ```
 <iframe height="200px" width="100%" src="https://repl.it/@programminguec/read?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 |行番号|解説|
 |---|---|
-|1|関数`open()`でファイルを開きます。一つ目の引数にファイルの位置を指定します。これは必ず指定する必要があります。次にモードという引数を指定します。`"r"`はファイルを読み込みモードで開くという意味です。読み込みモードで開く場合だけ、指定しなくても大丈夫です。|
-|2|`read()`メソッドでファイルの中身を読み込みます。`read(10)`と引数を指定する場合は、最初の10文字だけ読み込まれます。指定しない場合はファイルの中身が全て読み読み込まれます。|
-|3|読み込まれた内容を出力します。`read()`で読み込まれた内容は文字列型です。|
-|4|最後にファイルを閉じます。|
+|2|関数`open()`でファイルを開きます。一つ目の引数にファイルの位置を指定します。これは必ず指定する必要があります。次にモードという引数を指定します。`"r"`はファイルを読み込みモードで開くという意味です。読み込みモードで開く場合だけ、指定しなくても大丈夫です。|
+|3|`read()`メソッドでファイルの中身を読み込みます。`read(10)`と引数を指定する場合は、最初の10文字だけ読み込まれます。指定しない場合はファイルの中身が全て読み読み込まれます。|
+|4|読み込まれた内容を出力します。`read()`で読み込まれた内容は文字列型です。|
+|5|`repr()`関数で`data`に入っているデータ元の形を表示。dataは文字列型で、`\n`などの改行文字が入っているのも確認できます。|
+|6|最後にファイルを閉じます。|
 
 ---
 
@@ -72,7 +74,7 @@ a_file.close()
 この例でファイルへの書き込みを説明します。
 ```python=1
 # write()
-a_file = open("test.txt", "a")
+a_file = open("new.txt", "a")
 a_file.write("Hello python\n")
 a_file.close()
 ```
@@ -80,30 +82,41 @@ a_file.close()
 |行番号|解説|
 |---|---|
 |2|ファイルに追加形式で内容を書き込む時、引数のモードに`a`を指定します。|
+|3|一回書き込む、ここで注意すべきのは文字列の最後にある`\n`改行文字です。<br>改行(`\n`は明示的に書き込まないといけません。|
 |4|最後にファイルを閉じます。|
 
 
 さらに、書き込んだ内容を確認したい時はどうしましょう？
 
 ```python=1
-# write()
-a_file = open("test.txt", "a+")
-a_file.write("Hello python\n")
-a_file.seek(0)    # ファイルのポインターを先頭に移動
-a = a_file.read()
-print(a)
-a_file.close()
-```
-<iframe height="200px" width="100%" src="https://repl.it/@programminguec/write?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+from datetime import datetime
 
-繰り返して実行すると`Hello python`は何度も追加されます。
+a_file = open("new.txt", "a+")
+print('Before seek:', a_file.read())
+a_file.seek(0) # seek(0)なので、ポインターはファイルの先頭に戻る。
+print('After seek:', a_file.read())
+a_file.write(str(datetime.now())+"\n") # 今の時間を書き込む
+# seekしていないので、この時点のファイルポインタはファイルの最後にある
+print('Before seek:', a_file.read()) # なんにも表示されず
+a_file.seek(0) # seek(0)なので、ポインターはファイルの先頭に戻る。
+print('After seek:', a_file.read())
+a_file.close()
+
+```
+<iframe height="800px" width="100%" src="https://repl.it/@programminguec/write?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+繰り返して実行するとUTC時間は何度も追加されます。
 
 基本的に上で紹介した内容と同じですが、2ヶ所の違いがあります。
 |行番号|解説|
 |---|---|
-|2|上のプログラムのように、追記で書き込んだあとにファイルの中身をもう一度読み込みたい場合は、後ろに`+`を入れます。詳しくは以下の補足の部分を読んでください。|
-|4|ファイルを一度書き終えた時は、内部のポインター(:pencil2:ペンだと思えばいい)の位置はもちろん一番後ろにありますよね。そして、頭から中身を読みたい場合はその位置を先頭に移動させる必要があります。ここで`seek()`というメソッドを使います。|
-
+|1|`datetime`モジュールで時間を扱います。|
+|3|上のプログラムのように、追記で書き込んだあとにファイルの中身をもう一度読み込みたい場合は、後ろに`+`を入れます。詳しくは以下の補足の部分を読んでください。|
+|4|ファイルを「追記」モードで開いているので、ファイルの内部ポインターは最後にいます。<br>この時点で「内部ポインター以降を読み込んでくれ」とやっても、何も出てきません。|
+|5|内部のポインター(:pencil2:ペンだと思えばいい)の位置はずらすためのメソッドは`seek()`です。<br>ファイル全体を読み取りたい場合はその位置を先頭に移動させる必要があります。ここで`seek(0)`で0番位置に移動します。|
+|6|この時点、ファイルポインターは先頭に来たので、「内部ポインター以降を読み込んでくれ」と指示したら、ファイルの中身が表示されます。|
+|7|`datetime.now()`で現在のUTC時間を取り出せます。<br>このUTC時間をファイルの`new.txt`の最後に追記します。|
+|8|この時、ファイルポインターはまた最後に来たので、読み取ろうとすると、何も出てきません。|
 
 
 :::info
@@ -138,12 +151,20 @@ finally:
 with open(ファイル名) as 変数:
     # ここに処理を記述
 ```
-
+具体的な例:
 ```python=1
-with open("test.txt", "w") as f:
-     f.write("write something here.\n")
-     f.write("write more thing here.\n")
+from datetime import datetime
+with open('new.txt', 'w+') as fileobj:
+    fileobj.write('This file had been over-written!\n')
+    fileobj.write('The time is:'+str(datetime.now())+'\n')
+    fileobj.seek(0)
+    text = fileobj.read()
+print(text)
+
 ```
+<iframe height="800px" width="100%" src="https://repl.it/@programminguec/write?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+この実行ウィンドウの`Shell`画面で`python with_write.py`を実行してみてください。上の`a`モードにより追加されたファイルが上書きされます。
 
 :::info
 :bulb: 補足
