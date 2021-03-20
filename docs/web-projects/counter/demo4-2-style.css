@@ -1,0 +1,35 @@
+body {
+  background-color: dodgerblue;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.number-row {
+  width: 70%;
+  margin: auto;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-row {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.button-row button {
+  background-color: pink;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1.5em;
+  padding: 4px 1em;
+}
