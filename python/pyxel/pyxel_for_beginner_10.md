@@ -125,7 +125,12 @@ class App:
         # 敵のインスタンスをリストで作成する
         self.enemy_number = 3
         # リストの作り方は2通りある
-        self.enemys = [Enemy(x=random.choice([0, pyxel.width]), y=random.randint(0, pyxel.height), target=self.player) for _ in range(self.enemy_number)]
+        self.enemys = [
+            Enemy(
+                x=random.choice([0, pyxel.width]), 
+                y=random.randint(0, pyxel.height), 
+                target=self.player) 
+            for _ in range(self.enemy_number)]
         # gameoverのフラグを設定する
         self.game_over = False
         # プレイヤーが死亡したかを設定するフラグ
