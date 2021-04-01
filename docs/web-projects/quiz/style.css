@@ -1,0 +1,42 @@
+html, body {
+  font-family: sans-serif;
+  background-color: #f2e5ff;
+}
+
+h1 {
+  text-align: center;
+  color: #4d0099;
+}
+
+main {
+  max-width: 600px;
+  margin: auto;
+}
+
+#quiz-text {
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+#quiz-button {
+  margin-top: 16px;
+  display: flex;
+}
+
+#quiz-button > button {
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 24px;
+  flex: 1;
+}
+
+#button-yes {
+  border: 2px solid #008800;
+}
+
+#button-no {
+  border: 2px solid #880000;
+}
