@@ -62,11 +62,11 @@ score = 70;       // score: 70
 
 let player;
 player = 'あなた';
-alert(player + 'のターン');  // 'あなたのターン'
+console.log(player + 'のターン');  // 'あなたのターン'
 player = '相手';
-alert(player + 'のターン');  // '相手のターン'
+console.log(player + 'のターン');  // '相手のターン'
 player = 'あなた';
-alert(player + 'のターン');  // 'あなたのターン'
+console.log(player + 'のターン');  // 'あなたのターン'
 ```
 
 > [color=#d400f5]
