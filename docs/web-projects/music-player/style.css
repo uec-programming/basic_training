@@ -1,0 +1,22 @@
+#list {
+  list-style: none;
+}
+
+#list input{
+  display: none;
+}
+
+#list li {
+  border-bottom: 1px solid #aaa;
+  padding: 1em;
+}
+
+#list label {
+  color: #444;
+}
+
+#list input:checked+label {
+  font-weight: bold;
+  color: red;
+}
+

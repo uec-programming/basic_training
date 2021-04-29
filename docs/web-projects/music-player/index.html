@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>音楽プレーヤー</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>音楽プレーヤー</h1>
+    <audio id="player" controls>お使いのブラウザは音声再生をサポートしていません</audio>
+    <h2>曲リスト</h2>
+    <ul id="list">
+      <li>
+        <input type="radio" name="song" id="song1" onclick="changeSong('audio/burning-heart.mp3')" />
+        <label for="song1">Burning Heart - 魔王魂</label>
+      </li>
+      <li>
+        <input type="radio" name="song" id="song2" onclick="changeSong('audio/shining-star.mp3')" />
+        <label for="song2">Shining Star - 魔王魂</label>
+      </li>
+      <li>
+        <input type="radio" name="song" id="song3" onclick="changeSong('audio/shining-star.mp3')" />
+        <label for="song3">12345 - 魔王魂</label>
+      </li>
+    </ul>
+  </body>
+</html>
