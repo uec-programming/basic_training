@@ -120,6 +120,8 @@
               ...[].concat(...obj.map((val) => [...formatOutput(val), h(', ', 'mono')])).slice(0, -1),
               h(']', 'mono')
             ];
+          } else if (obj.constructor.name === 'Date') {
+            return [h(obj.toString(), 'mono')]
           } else {
             const jsonString = JSON.stringify(obj);
             if (jsonString === '{}') {
