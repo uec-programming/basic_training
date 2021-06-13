@@ -35,7 +35,16 @@ breaks: false
 +       color: green;
 +     }
     </style>
-  ...省略...
+
+   ...省略...
+
+   <h2>好きな食べ物</h2>
+-  <ul>
++  <ul class="food">
+     <li>納豆</li>
+     <li>バナナ</li>
+     <li>海老</li>
+   </ul>
 
 ```
 
