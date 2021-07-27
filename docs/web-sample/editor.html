@@ -16,36 +16,59 @@
         margin: 0;
         padding: 0;
       }
+      #editor,
+      #uibar {
+        background-color: #fff;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      #header-title {
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      #external {
+        color: rgba(0, 0, 0, 0.3);
+        display: none;
+      }
+      .hidden {
+        display: none !important;
+      }
       .container {
         display: flex;
         flex-direction: column;
+        background-color: hsl(160, 43%, 80%);
         border: 4px solid hsl(160, 43%, 80%);
       }
       #editor {
         flex: 1;
+        min-height: 0;
       }
       #uibar {
         min-height: 96px;
         display: flex;
         overflow: hidden;
-        border-top: 4px solid hsl(160, 43%, 80%);
+        margin-top: 4px;
+        position: relative;
       }
       #run {
         padding: 0 1em;
         justify-content: center;
         align-items: center;
         display: flex;
+      }
+      .run-button {
         font-weight: bold;
-        border-right: 4px solid hsl(160, 43%, 80%);
+        background-color: #fff;
         color: hsl(160, 43%, 30%);
         cursor: pointer;
       }
-      #run:hover {
+      .run-button:hover {
         background-color: #44aa88;
         color: white;
       }
       #console {
-        overflow: scroll;
+        border-left: 2px solid hsl(160, 43%, 80%);
+        overflow-y: scroll;
         font-family: menlo, monospace;
         flex: 1;
       }
@@ -72,104 +95,237 @@
       #console .mono {
         color: #444;
       }
+      #warning {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: rgba(255, 255, 255, 0.9);
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #warning-button {
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+      .iframe #external{
+        display: initial;
+      }
+      .iframe .container {
+        border-radius: 12px;
+        overflow: hidden;
+      }
     </style>
     <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      const isIframe = window.parent != window;
+      let subwin = null;
+
+      function sleep(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => resolve(), ms);
+        });
+      }
+
+      // コンソール表示
+      function formatOutput(obj) {
+        if (obj === undefined || obj === null || typeof obj === 'boolean' || typeof obj === 'number') {
+          return [h(String(obj), 'blue')];
+        } else if (typeof obj === 'string') {
+          return [h('"', 'mono'), h(obj, 'orange'), h('"', 'mono')];
+        } else if (Array.isArray(obj)) {
+          return [
+            h('[', 'mono'),
+            ...[].concat(...obj.map((val) => [...formatOutput(val), h(', ', 'mono')])).slice(0, -1),
+            h(']', 'mono')
+          ];
+        } else if (obj.constructor.name === 'Date') {
+          return [h(obj.toString(), 'mono')];
+        } else {
+          const jsonString = JSON.stringify(obj);
+          if (jsonString === '{}') {
+            return h(obj.toString(), 'mono');
+          }
+          return [h(JSON.stringify(obj), 'mono')];
+        }
+      }
+
+      // 要素生成
+      function h(content, className) {
+        const element = document.createElement('span');
+        element.innerText = content;
+        element.className = className;
+        return element;
+      }
+
+      // monacoエディタの初期化
+      function initEditor(editorElement) {
+        return new Promise((resolve) => {
+          require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } });
+          require(['vs/editor/editor.main'], () => {
+            const editor = monaco.editor.create(editorElement, {
+              value: '',
+              language: 'javascript',
+              theme: 'vs-light',
+              automaticLayout: true,
+              minimap: {
+                enabled: false
+              }
+            });
+            editor.onDidChangeModelContent(() => {
+              if(isIframe && subwin && !subwin.closed) {
+                subwin.updateContent(editor.getValue())
+              } else if (window.opener) {
+                window.opener.updateContent(editor.getValue())
+              }
+            })
+            window.updateContent = (content) => {
+              const currentContent = editor.getValue();
+              if(currentContent === content) return;
+              editor.setValue(content)
+            }
+            resolve(editor);
+          });
+        });
+      }
+      async function setDefaultCode(editor) {
+        const searchParams = new URLSearchParams(location.search);
+        if (searchParams.has('code')) {
+          editor.setValue(searchParams.get('code').replace(/\\n/g, '\n'));
+        } else if (searchParams.has('file')) {
+          const fileName = searchParams.get('file');
+          await fetch(fileName)
+            .then((result) => result.text())
+            .then((string) => editor.setValue(string));
+        }
+        return editor;
+      }
+
+      // iframeサンドボックス
+      function createSandboxWindow(consoleElement) {
         const sandbox = document.createElement('iframe');
         sandbox.style.display = 'none';
         document.body.append(sandbox);
         const sandboxWindow = sandbox.contentWindow.window;
+
+        // ログ表示
+        const log = (result) => {
+          const div = document.createElement('div');
+          div.append(...formatOutput(result));
+          consoleElement.append(div);
+        };
+        // エラー表示
+        const logError = (err) => {
+          const div = document.createElement('div');
+          div.append(h((err.name ? `${err.name}: ` : '') + err.message, 'error'));
+          consoleElement.append(div);
+        };
+        // console.logの上書き
         const originalLog = sandboxWindow.console.log;
         sandboxWindow.console.log = (...args) => {
           args.map((arg) => log(arg));
           originalLog.apply(console, args);
         };
-        async function execute(code) {
-          document.getElementById('console').innerText = '';
+        // コード実行
+        const executeSandbox = async (code) => {
+          consoleElement.innerText = '';
           await sleep(100);
           try {
-            return sandboxWindow.eval(code);
+            sandboxWindow.eval(code);
           } catch (err) {
             logError(err);
+            throw err;
           }
-        }
-        function sleep(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(), ms);
-          });
-        }
-        function log(result) {
-          const div = document.createElement('div');
-          div.append(...formatOutput(result));
-          document.getElementById('console').append(div);
-        }
-        function logError(err) {
-          const div = document.createElement('div');
-          div.append(h((err.name ? `${err.name}: ` : '') + err.message, 'error'));
-          document.getElementById('console').append(div);
-        }
-        function formatOutput(obj) {
-          if (obj === undefined || obj === null || typeof obj === 'boolean' || typeof obj === 'number') {
-            return [h(String(obj), 'blue')];
-          } else if (typeof obj === 'string') {
-            return [h('"', 'mono'), h(obj, 'orange'), h('"', 'mono')];
-          } else if (Array.isArray(obj)) {
-            return [
-              h('[', 'mono'),
-              ...[].concat(...obj.map((val) => [...formatOutput(val), h(', ', 'mono')])).slice(0, -1),
-              h(']', 'mono')
-            ];
-          } else if (obj.constructor.name === 'Date') {
-            return [h(obj.toString(), 'mono')]
-          } else {
-            const jsonString = JSON.stringify(obj);
-            if (jsonString === '{}') {
-              return h(obj.toString(), 'mono');
-            }
-            return [h(JSON.stringify(obj), 'mono')];
-          }
-        }
-        function h(content, className) {
-          const element = document.createElement('span');
-          element.innerText = content;
-          element.className = className;
-          return element;
-        }
+        };
+        return [sandboxWindow, executeSandbox];
+      }
 
-        require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } });
-        require(['vs/editor/editor.main'], function () {
-          const editorElement = document.getElementById('editor');
-          const editor = monaco.editor.create(editorElement, {
-            value: '',
-            language: 'javascript',
-            theme: 'vs-light',
-            scrollBeyondLastLine: false,
-            minimap: {
-              enabled: false
+      // Chrome 92: cross-originのalert, prompt, confirmのブロック
+      function addUIDialogWarning(win, warningElement) {
+        const originalAlert = alert;
+        const originalPrompt = prompt;
+        const originalConfirm = confirm;
+        const showWarning = () => {
+          warningElement.classList.remove('hidden')
+        };
+        win.alert = (...args) => {
+          showWarning();
+          return originalAlert.apply(win, args);
+        };
+        win.prompt = (...args) => {
+          showWarning();
+          return originalPrompt.apply(win, args);
+        };
+        win.confirm = (...args) => {
+          showWarning();
+          return originalConfirm.apply(win, args);
+        };
+      }
+
+      function openInNewWindow(code, instantExec) {
+        const encodedCode = encodeURIComponent(code);
+        const instantParam = instantExec ? 'yes' : 'no';
+        subwin = window.open(`?code=${encodedCode}&instant=${instantParam}`, 'subwindow', 'width=600, height=600, toolbar=no, locationbar=no');
+        window.addEventListener('unload', () => {
+          if (subwin && !subwin.closed) subwin.close();
+        });
+      }
+
+      // ロード時
+      document.addEventListener('DOMContentLoaded', () => {
+        const consoleElement = document.getElementById('console');
+        const editorElement = document.getElementById('editor');
+        const runButton = document.getElementById('run');
+        const warningElement = document.getElementById('warning');
+        const warningButton = document.getElementById('warning-button');
+        const externalLink = document.getElementById('external');
+
+        const [sandboxWindow, executeSandbox] = createSandboxWindow(consoleElement);
+        const run = initEditor(editorElement)
+          .then(setDefaultCode)
+          .then((editor) => {
+            runButton.addEventListener('click', () => {
+              executeSandbox(editor.getValue());
+            });
+            externalLink.addEventListener('click', () => {
+              openInNewWindow(editor.getValue(), false);
+            });
+            warningElement.addEventListener('click', () => {
+              warningElement.classList.add('hidden');
+            });
+            warningButton.addEventListener('click', () => {
+              openInNewWindow(editor.getValue(), true);
+            });
+            if(searchParams.get('instant') === 'yes') {
+              executeSandbox(editor.getValue());
             }
           });
-          const searchParams = new URLSearchParams(location.search);
-          if (searchParams.has('code')) {
-            editor.setValue(searchParams.get('code').replace(/\\n/g, '\n'));
-          } else if (searchParams.has('file')) {
-            const fileName = searchParams.get('file');
-            fetch(fileName)
-              .then((result) => result.text())
-              .then((string) => editor.setValue(string));
-          }
-          document.getElementById('run').addEventListener('click', () => {
-            execute(editor.getValue());
-          });
-        });
+        if (isIframe) {
+          addUIDialogWarning(sandboxWindow, warningElement);
+          document.body.classList.add('iframe');
+        }
+        const searchParams = new URLSearchParams(location.search);
       });
     </script>
   </head>
   <body>
     <div class="container">
+      <div id="header">
+        <span id="header-title">JavaScriptエディタ</span>
+        <a id="external" href="#" style="float: right">別ウィンドウで開く</a>
+      </div>
       <div id="editor"></div>
       <div id="uibar">
-        <div id="run">▶︎実行</div>
+        <div id="warning" class="hidden">
+          <div id="warning-message">alert, confirm, promptは埋め込みエディタでは利用できません。</div>
+          <div id="warning-button" class="run-button">▶︎別ウィンドウで実行</div>
+        </div>
+        <div id="run" class="run-button">▶︎実行</div>
         <div id="console"></div>
       </div>
     </div>
