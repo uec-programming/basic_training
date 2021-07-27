@@ -4,13 +4,8 @@ lang: ja-jp
 breaks: false
 ---
 
-<style>
-iframe{
-  border: none;
-  width: 100%;
-  min-height: 12em;
-}
-</style>
+{%hackmd XHlLOBGsR3CMEh2g6-7OCA %}
+
 
 # 2-3 読みやすいコードを書こう
 
