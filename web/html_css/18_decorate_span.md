@@ -44,7 +44,7 @@ breaks: false
       <h2>サイト紹介</h2>
       <p>電気通信大学プログラミング教室のwebサイトは<a href="https://www.uec-programming.com">こちら</a>！！</p>
       <h2>好きな食べ物</h2>
-      <ul class="food">
+      <ul>
         <li>納豆</li>
         <li>バナナ</li>
         <li>海老</li>
