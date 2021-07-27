@@ -4,18 +4,7 @@ lang: ja-jp
 breaks: false
 ---
 
-<style>
-iframe{
-  border: none;
-  width: 100%;
-  min-height: 15em;
-}
-.mathjax > .MJXc-display {
-    background: #eee;
-    border-radius: 8px;
-    box-shadow: #eee 0 -6px, #eee 0 6px;
-}
-</style>
+{%hackmd XHlLOBGsR3CMEh2g6-7OCA %}
 
 # 2-13 複数の条件を組み合わせよう
 
@@ -61,10 +50,10 @@ cond2(no)->out3->e
 
 ## 論理演算子
 論理演算子とはオペランドの真偽値に対して、`true`または`false`を返す演算子のことを指します。論理演算子を用いることで、複数の条件式を一つにまとめることができます。以下の3つの論理演算子を確認してみましょう。
-| 記号   | 名称    | Column 3 |
+| 記号   | 名称    | 説明 |
 | ----- | ------ | -------- |
 | `&&`  | 論理AND(かつ) | 左オペランドと右オペランドの両方が`true`なら`true`を返す。     |
-| `||`  | 論理OR(または) | 左オペランドと右オペランドの少なくとも一方が`true`なら`true`を返す。     |
+| `\|\|`  | 論理OR(または) | 左オペランドと右オペランドの少なくとも一方が`true`なら`true`を返す。     |
 | `!`   | 論理NOT | 右オペランドが`true`なら`false`を、`false`なら`true`を返す。 |
 
 ```javascript=
