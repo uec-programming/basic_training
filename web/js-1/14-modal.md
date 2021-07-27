@@ -4,13 +4,7 @@ lang: ja-jp
 breaks: false
 ---
 
-<style>
-iframe{
-  border: none;
-  width: 100%;
-  min-height: 15em;
-}
-</style>
+{%hackmd XHlLOBGsR3CMEh2g6-7OCA %}
 
 # 2-14 入力された値を使おう
 
