@@ -4,18 +4,8 @@ lang: ja-jp
 breaks: false
 ---
 
-<style>
-iframe{
-  border: none;
-  width: 100%;
-  min-height: 15em;
-}
-.mathjax > .MJXc-display {
-    background: #eee;
-    border-radius: 8px;
-    box-shadow: #eee 0 -6px, #eee 0 6px;
-}
-</style>
+{%hackmd XHlLOBGsR3CMEh2g6-7OCA %}
+
 
 # 2-7 変わる値にも名前をつけよう
 
