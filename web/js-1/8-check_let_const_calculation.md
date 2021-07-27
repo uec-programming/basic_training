@@ -4,16 +4,11 @@ lang: ja-jp
 breaks: false
 ---
 
+{%hackmd XHlLOBGsR3CMEh2g6-7OCA %}
+
 <style>
 iframe{
-  border: none;
-  width: 100%;
   min-height: 20em;
-}
-.mathjax > .MJXc-display {
-    background: #eee;
-    border-radius: 8px;
-    box-shadow: #eee 0 -6px, #eee 0 6px;
 }
 </style>
 
