@@ -113,7 +113,7 @@
         padding: 4px 8px;
         border-radius: 4px;
       }
-      .iframe #external{
+      .iframe #external {
         display: initial;
       }
       .iframe .container {
@@ -178,17 +178,17 @@
               }
             });
             editor.onDidChangeModelContent(() => {
-              if(isIframe && subwin && !subwin.closed) {
-                subwin.updateContent(editor.getValue())
+              if (isIframe && subwin && !subwin.closed) {
+                subwin.updateContent(editor.getValue());
               } else if (window.opener) {
-                window.opener.updateContent(editor.getValue())
+                window.opener.updateContent(editor.getValue());
               }
-            })
+            });
             window.updateContent = (content) => {
               const currentContent = editor.getValue();
-              if(currentContent === content) return;
-              editor.setValue(content)
-            }
+              if (currentContent === content) return;
+              editor.setValue(content);
+            };
             resolve(editor);
           });
         });
@@ -247,11 +247,17 @@
 
       // Chrome 92: cross-originのalert, prompt, confirmのブロック
       function addUIDialogWarning(win, warningElement) {
+        // Chromium 92以上のみ続行
+        if (!navigator.userAgentData) return;
+        const chromiumBrand = navigator.userAgentData.brands.find((item) => item.brand.includes('Chromium'));
+        if (!chromiumBrand || chromiumBrand.version < 92) return;
+
+        // 3メソッドのいずれか呼び出し時に警告表示
         const originalAlert = alert;
         const originalPrompt = prompt;
         const originalConfirm = confirm;
         const showWarning = () => {
-          warningElement.classList.remove('hidden')
+          warningElement.classList.remove('hidden');
         };
         win.alert = (...args) => {
           showWarning();
@@ -270,7 +276,11 @@
       function openInNewWindow(code, instantExec) {
         const encodedCode = encodeURIComponent(code);
         const instantParam = instantExec ? 'yes' : 'no';
-        subwin = window.open(`?code=${encodedCode}&instant=${instantParam}`, 'subwindow', 'width=600, height=600, toolbar=no, locationbar=no');
+        subwin = window.open(
+          `?code=${encodedCode}&instant=${instantParam}`,
+          'subwindow',
+          'width=600, height=600, toolbar=no, locationbar=no'
+        );
         window.addEventListener('unload', () => {
           if (subwin && !subwin.closed) subwin.close();
         });
@@ -301,7 +311,7 @@
             warningButton.addEventListener('click', () => {
               openInNewWindow(editor.getValue(), true);
             });
-            if(searchParams.get('instant') === 'yes') {
+            if (searchParams.get('instant') === 'yes') {
               executeSandbox(editor.getValue());
             }
           });
