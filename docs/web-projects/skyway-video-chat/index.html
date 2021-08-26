@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.webrtc.ecl.ntt.com/skyway-4.4.1.min.js"></script>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Skywayでビデオ通話</title>
+</head>
+<body>
+  <h1>ビデオ通話</h1>
+  <div class="user">
+    <video id="local-video" autoplay muted playsinline></video>
+    自分のPeerId:
+    <span id="local-id"></span>
+  </div>
+  <div class="user">
+    <video id="remote-video" autoplay muted playsinline></video>
+    相手ののPeerId:
+    <input id="remote-id"></input>
+    <button id="call-button" onclick="startCall()">発信</button>
+  </div>
+</body>
+</html>

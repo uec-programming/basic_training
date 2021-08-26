@@ -1,0 +1,12 @@
+.user {
+  width: 400px;
+  border-radius: 12px;
+  background: lightpink;
+  border: 4px solid lightpink;
+  overflow: hidden;
+  margin: 8px 0;
+}
+.user video {
+  width: 100%;
+  border-radius: 8px;
+}
