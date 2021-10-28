@@ -45,39 +45,12 @@ function createPeer() {
   });
   // Skywayサーバとの接続成功時の関数を登録
   peer.on('open', showPeerID);
-  // 着信時の関数を登録
-  peer.on('call', answerCall);
 }
 
 // 自分のPeerIDを表示する関数
 function showPeerID() {
   console.log('Skywayサーバに接続成功');
   document.getElementById('local-id').textContent = peer.id;
-}
-
-// 着信を受け取る
-function answerCall(connection) {
-  // 発信元に自分の映像を送る
-  connection.answer(localStream);
-  // 相手から映像が来た時の関数を登録
-  connection.on('stream', onStream);
-}
-
-// 発信する
-function startCall() {
-  // 入力された相手のPeerID
-  const remoteID = document.getElementById('remote-id').value;
-  const connection = peer.call(remoteID, localStream);
-  connection.on('stream', onStream);
-}
-
-// 相手の映像を受け取った時
-function onStream(remoteStream) {
-  console.log('相手から映像を受信');
-  // video要素を取得し、相手の映像(remoteStream)をセットして再生
-  const videoElement = document.getElementById('remote-video');
-  videoElement.srcObject = remoteStream;
-  videoElement.play();
 }
 
 // ページ読み込みが完了した時の関数を登録

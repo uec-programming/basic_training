@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Skyway SDKをインポート -->
   <script src="https://cdn.webrtc.ecl.ntt.com/skyway-4.4.1.min.js"></script>
-  <!-- JSを読み込み -->
-  <script src="main.js"></script>
   <!-- CSSを読み込み -->
   <link rel="stylesheet" href="style.css" />
   <title>Skywayでビデオ通話</title>
@@ -18,13 +16,6 @@
   <div class="user">
     <video id="local-video" autoplay muted playsinline></video>
     自分のPeerId: <span id="local-id"></span>
-  </div>
-  <!-- 相手 -->
-  <div class="user">
-    <video id="remote-video" autoplay muted playsinline></video>
-    相手のPeerId:
-    <input id="remote-id"></input>
-    <button id="call-button" onclick="startCall()">発信</button>
   </div>
 </body>
 </html>
