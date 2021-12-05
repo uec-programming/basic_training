@@ -22,17 +22,6 @@ function subscribeBTC() {
   ws.send(dataString);
 }
 
-// XRPの購読開始
-function subscribeXRP() {
-  const data = {
-    command: 'subscribe',
-    channel: 'ticker',
-    symbol: 'XRP_JPY'
-  };
-  const dataString = JSON.stringify(data);
-  ws.send(dataString);
-}
-
 // 接続成功時の表示更新
 function onOpen() {
   document.getElementById('status-text').textContent = 'GMOコインに接続しました';
@@ -47,15 +36,9 @@ function onError() {
 function onMessage(event) {
   const dataString = event.data;
   const data = JSON.parse(dataString);
-  if (data.symbol == 'BTC_JPY') {
-    document.getElementById('btc-jpy-last').textContent = data.last;
-    const timestamp = new Date(data.timestamp).toLocaleString();
-    document.getElementById('btc-jpy-timestamp').textContent = timestamp;
-  } else if (data.symbol == 'XRP_JPY') {
-    document.getElementById('xrp-jpy-last').textContent = data.last;
-    const timestamp = new Date(data.timestamp).toLocaleString();
-    document.getElementById('xrp-jpy-timestamp').textContent = timestamp;
-  }
+  document.getElementById('btc-jpy-last').textContent = data.last;
+  const timestamp = new Date(data.timestamp).toLocaleString();
+  document.getElementById('btc-jpy-timestamp').textContent = timestamp;
 }
 
 window.addEventListener('load', onload);

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocketで暗号資産の価格取得</title>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="title">
+        <h1>暗号資産の今の価格</h1>
+      </div>
+      <div class="status">WebSocketの状況: <span id="status-text"></span></div>
+      <div class="coin">
+        <h2>Bitcoinの現在の価格</h2>
+        <button onclick="subscribeBTC()">取得開始</button>
+        1 BTC = <span id="btc-jpy-last"></span>円 (<span id="btc-jpy-timestamp"></span>)
+      </div>
+    </main>
+  </body>
+</html>

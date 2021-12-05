@@ -1,0 +1,26 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  background-color: lightgray;
+}
+
+main {
+  background-color: white;
+  margin: 16px;
+  padding: 16px;
+}
+
+h1 {
+  color: darkcyan;
+  font-size: 48px;
+  text-align: center;
+}
+
+.status {
+  color: darkcyan;
+}
+
+.coin {
+  border-top: 4px dashed lightgray;
+  padding: 16px 0;
+}
