@@ -1,17 +1,25 @@
-function onLoad() {
+// 天気API呼び出し
+function getWeather() {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.aoikujira.com/tenki/week.php?fmt=json');
-  xhr.addEventListener('load', function () {
-    const data = xhr.responseText;
-    const json = JSON.parse(data);
-    showData(json);
-  });
+  xhr.open('GET', 'https://api.aoikujira.com/tenki/week.php?fmt=json&city=東京');
+  xhr.addEventListener('load', showData);
   xhr.send();
 }
 
-function showData(json) {
-  const tokyo = json['東京'];
+// ページロード時にonLoad関数を呼び出し
+window.addEventListener('load', getWeather);
 
+// データの表示
+function showData(event) {
+  const xhr = event.target;
+  // 取得した文字列
+  const text = xhr.responseText;
+  // オブジェクトに変換
+  const data = JSON.parse(text);
+  // 東京の天気を取り出し
+  const tokyo = data['東京'];
+
+  // HTMLの組み立て
   let result = '';
   for (const day of tokyo) {
     result += `<h2>${day.date}の天気</h2>
@@ -21,9 +29,8 @@ function showData(json) {
       <li>降水確率：${day.pop}％</li>
     </ul>`;
   }
-  result += `取得時刻：${json.mkdate}`;
+  result += `取得時刻：${data.mkdate}`;
 
+  // 画面に表示
   document.getElementById('main').innerHTML = result;
 }
-
-window.addEventListener('load', onLoad);
