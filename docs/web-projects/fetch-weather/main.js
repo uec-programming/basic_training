@@ -26,7 +26,7 @@ function showData(event) {
     <ul>
       <li>天気：${day.forecast}</li>
       <li>気温：${day.maxtemp}度 / ${day.mintemp}度</li>
-      <li>降水確率：${day.pop}％</li>
+      <li>波の高さ：${day.waves}</li>
     </ul>`;
   }
   result += `取得時刻：${data.mkdate}`;
